@@ -11,26 +11,29 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.lerin.net.BKMate"
+      "supportsTablet": true
+
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "package": "com.lerin.net.BKMate"
+        "backgroundColor": "#FFFFFF"
+      }
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "55f3ac9d-7989-473b-89a2-f5a500071ec7"
+        // "projectId": "55f3ac9d-7989-473b-89a2-f5a500071ec7"
+        "projectID": "f1dfcced-2aaa-43f0-8cc9-6a20c55b8713"
       }
     }
   }

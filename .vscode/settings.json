@@ -1,0 +1,19 @@
+{
+  "detectedConfig": {
+    "typescript": false,
+    "naming": "Pascal Case",
+    "unit": "em",
+    "framework": "react",
+    "styling": "CSS Modules"
+  },
+  "locofyConfig": {
+    "project_name": "BKMate",
+    "id": "655e17fac4594158ad40461a",
+    "framework": "react-native",
+    "typescript": true,
+    "path": "assets/",
+    "componentsPath": "d:\\MAD\\BKMate-App\\src\\components",
+    "screensPath": "d:\\MAD\\BKMate-App\\src\\pages",
+    "project_environment": "expo_go"
+  }
+}
