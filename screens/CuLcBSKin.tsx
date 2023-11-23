@@ -7,7 +7,7 @@ import {
   ImageBackground,
   Pressable,
 } from "react-native";
-import Carousel from "react-native-reanimated-carousel";
+import Carousel from "react-native-reanimated";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Border, Padding } from "../GlobalStyles";
