@@ -14,21 +14,22 @@ import ThngTinTiKhon from "./screens/ThngTinTiKhon";
 import ThngTinVTrng from "./screens/ThngTinVTrng";
 import ChngTrnhOTo from "./screens/ChngTrnhOTo";
 import GiiThiu from "./screens/GiiThiu";
-import ToHcTp from "./screens/ToHcTp";
+import ToHcTp from "./screens/StudyBuilding";
 import DnNg from "./screens/DnNg";
 import ThngTinAIm from "./screens/ThngTinAIm";
-import TaChcNng from "./screens/TaChcNng";
-import KhunVin from "./screens/KhunVin";
+import TaChcNng from "./screens/FeatureBuilding";
+import KhunVin from "./screens/Campus";
 import ChiTitHngNghip from "./screens/ChiTitHngNghip";
 import HngNghip from "./screens/HngNghip";
 import QutMQR from "./screens/QutMQR";
-import ThngBo from "./screens/ThngBo";
+import ThngBo from "./screens/Announce";
 import CmNBoLiGp from "./screens/CmNBoLiGp";
 import NiDungBoLiGp from "./screens/NiDungBoLiGp";
 import BoLiGp from "./screens/BoLiGp";
 import Home from "./screens/Home";
 import ThngTinCNhn from "./screens/ThngTinCNhn";
 import CuLcBSKin from "./screens/CuLcBSKin";
+import OnboardingScreen1 from './screens/Onboarding/onboarding-1'
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
@@ -47,9 +48,14 @@ const App = () => {
         <NavigationContainer>
           {hideSplashScreen ? (
             <Stack.Navigator
-              initialRouteName="WelcomeScreen"
+              initialRouteName="OnboardingScreen1"
               screenOptions={{ headerShown: false }}
             >
+              <Stack.Screen
+                name="Onboarding1"
+                component={OnboardingScreen1}
+                options={{ headerShown: false }}
+              />
               <Stack.Screen
                 name="ChiTitCuLcB"
                 component={ChiTitCuLcB}

@@ -1,9 +1,9 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-import { FontFamily, Color, FontSize, Padding, Border } from "../GlobalStyles";
+import { FontFamily, Color, FontSize, Padding, Border } from "../../GlobalStyles";
 
 const KhunVin = () => {
   const navigation = useNavigation();
@@ -21,7 +21,7 @@ const KhunVin = () => {
               <Image
                 style={styles.uiIcon}
                 contentFit="cover"
-                source={require("../assets/ui.png")}
+                source={require("../../assets/ui.png")}
               />
               <View style={styles.time}>
                 <Text style={[styles.time1, styles.time1Typo]}>9:27</Text>
@@ -35,7 +35,7 @@ const KhunVin = () => {
             <Image
               style={styles.backChild}
               contentFit="cover"
-              source={require("../assets/vector-92.png")}
+              source={require("../../assets/vector-92.png")}
             />
             <Text style={[styles.back1, styles.aIm1Typo]}>Trang chủ</Text>
           </Pressable>
@@ -45,7 +45,7 @@ const KhunVin = () => {
           <Image
             style={styles.vectorIcon2}
             contentFit="cover"
-            source={require("../assets/vector1.png")}
+            source={require("../../assets/vector1.png")}
           />
         </View>
         <View style={styles.search}>
@@ -53,7 +53,7 @@ const KhunVin = () => {
             <Image
               style={styles.searchIcon1}
               contentFit="cover"
-              source={require("../assets/search.png")}
+              source={require("../../assets/search.png")}
             />
             <Text style={styles.aIm}>Địa điểm</Text>
           </View>
@@ -62,12 +62,12 @@ const KhunVin = () => {
             <Image
               style={styles.arrowRight1}
               contentFit="cover"
-              source={require("../assets/arrow--right.png")}
+              source={require("../../assets/arrow--right.png")}
             />
           </View>
         </View>
       </LinearGradient>
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <Text style={styles.khuVc}>Khu vực</Text>
         <Pressable
           style={styles.cardShadowBox}
@@ -76,7 +76,7 @@ const KhunVin = () => {
           <Image
             style={styles.imageIcon}
             contentFit="cover"
-            source={require("../assets/image9.png")}
+            source={require("../../assets/image9.png")}
           />
           <Text style={[styles.aIm1, styles.aIm1Clr]}>Tòa nhà học tập</Text>
         </Pressable>
@@ -87,11 +87,11 @@ const KhunVin = () => {
           <Image
             style={styles.imageIcon}
             contentFit="cover"
-            source={require("../assets/image10.png")}
+            source={require("../../assets/image10.png")}
           />
           <Text style={[styles.aIm1, styles.aIm1Clr]}>Tòa nhà chức năng</Text>
         </Pressable>
-      </View>
+      </ScrollView>
       <View style={[styles.navBar, styles.navBarBorder]}>
         <Pressable
           style={styles.homeFlexBox}
@@ -100,7 +100,7 @@ const KhunVin = () => {
           <Image
             style={styles.vectorIcon3}
             contentFit="cover"
-            source={require("../assets/vector.png")}
+            source={require("../../assets/vector.png")}
           />
           <Text style={[styles.thngBo, styles.time1Typo]}>Thông báo</Text>
         </Pressable>
@@ -111,7 +111,7 @@ const KhunVin = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlyboldhome.png")}
+            source={require("../../assets/iconlyboldhome.png")}
           />
           <Text style={[styles.thngBo, styles.time1Typo]}>Trang chủ</Text>
         </Pressable>
@@ -122,7 +122,7 @@ const KhunVin = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlylightprofile5.png")}
+            source={require("../../assets/iconlylightprofile5.png")}
           />
           <Text style={[styles.thngBo, styles.time1Typo]}>Tài khoản</Text>
         </Pressable>

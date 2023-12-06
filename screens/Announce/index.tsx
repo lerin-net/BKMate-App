@@ -1,23 +1,23 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, Pressable } from "react-native";
+import { StyleSheet, View, Text, Pressable, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
-import { FontFamily, FontSize, Color, Padding, Border } from "../GlobalStyles";
-
+import { FontFamily, FontSize, Color, Padding, Border } from "../../GlobalStyles";
+import NavigationBar from "../../components/NavigationBar";
 const ThngBo = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.thngBo}>
-      <View style={[styles.content, styles.topPosition]}>
+      <ScrollView style={[styles.content, styles.topPosition]}>
         <View style={styles.thngBo1}>
           <View style={[styles.announcement, styles.announcementFlexBox]}>
             <View style={styles.icon}>
               <Image
                 style={[styles.announceIcon6, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>{`Khuôn viên trường `}</Text>
@@ -33,7 +33,7 @@ const ThngBo = () => {
               <Image
                 style={[styles.announceIcon7, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>Sự kiện</Text>
@@ -49,7 +49,7 @@ const ThngBo = () => {
               <Image
                 style={[styles.announceIcon6, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>{`Hướng nghiệp `}</Text>
@@ -65,7 +65,7 @@ const ThngBo = () => {
               <Image
                 style={[styles.announceIcon6, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>{`Tài khoản `}</Text>
@@ -81,7 +81,7 @@ const ThngBo = () => {
               <Image
                 style={[styles.announceIcon6, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>{`Khuôn viên `}</Text>
@@ -97,7 +97,7 @@ const ThngBo = () => {
               <Image
                 style={[styles.announceIcon6, styles.announceIconPosition]}
                 contentFit="cover"
-                source={require("../assets/announce.png")}
+                source={require("../../assets/announce.png")}
               />
             </View>
             <Text style={styles.khunVinTrng1}>{`Khuôn viên `}</Text>
@@ -107,7 +107,8 @@ const ThngBo = () => {
           </Text>
           <Text style={[styles.ngyTrc, styles.ngyTypo]}>15 ngày trước</Text>
         </View>
-      </View>
+      </ScrollView>
+
       <LinearGradient
         style={[styles.top, styles.topLayout]}
         locations={[0.03, 0.61]}
@@ -116,23 +117,11 @@ const ThngBo = () => {
         <Image
           style={[styles.image21Icon, styles.barPosition]}
           contentFit="cover"
-          source={require("../assets/image-21.png")}
+          source={require("../../assets/image-21.png")}
         />
-        <View style={[styles.statusBar, styles.barPosition]}>
-          <View style={styles.statusBar1}>
-            <Image
-              style={styles.uiIcon}
-              contentFit="cover"
-              source={require("../assets/ui.png")}
-            />
-            <View style={styles.time}>
-              <Text style={[styles.time1, styles.barPosition]}>9:27</Text>
-            </View>
-          </View>
-        </View>
         <Text style={styles.thngBo7}>Thông báo</Text>
       </LinearGradient>
-      <View style={[styles.navBar, styles.barPosition]}>
+      {/* <View style={[styles.navBar, styles.barPosition]}>
         <Pressable
           style={styles.homeFlexBox}
           onPress={() => navigation.navigate("ThngBo")}
@@ -140,7 +129,7 @@ const ThngBo = () => {
           <Image
             style={styles.vectorIcon1}
             contentFit="cover"
-            source={require("../assets/vector2.png")}
+            source={require("../../assets/vector2.png")}
           />
           <Text style={[styles.thngBo8, styles.thngBo8Typo]}>Thông báo</Text>
         </Pressable>
@@ -151,7 +140,7 @@ const ThngBo = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlyboldhome.png")}
+            source={require("../../assets/iconlyboldhome.png")}
           />
           <Text style={[styles.trangCh, styles.thngBo8Typo]}>Trang chủ</Text>
         </Pressable>
@@ -162,12 +151,14 @@ const ThngBo = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlylightprofile.png")}
+            source={require("../../assets/iconlylightprofile.png")}
           />
           <Text style={[styles.trangCh, styles.thngBo8Typo]}>Tài khoản</Text>
         </Pressable>
-      </View>
+      </View> */}
+      <NavigationBar />
     </View>
+
   );
 };
 

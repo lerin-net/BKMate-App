@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Text, StyleSheet, Pressable, View } from "react-native";
+import { Text, StyleSheet, Pressable, View, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import { FontFamily, FontSize, Color, Border, Padding } from "../GlobalStyles";
+import { FontFamily, FontSize, Color, Border, Padding } from "../../GlobalStyles";
 
 const TaChcNng = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.taChcNng1}>
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <Text style={styles.taNhChc1}>Tòa nhà chức năng</Text>
         <View style={styles.cardShadowBox}>
           <Pressable
@@ -19,7 +19,7 @@ const TaChcNng = () => {
             <Image
               style={[styles.icon, styles.iconSpaceBlock]}
               contentFit="cover"
-              source={require("../assets/image4.png")}
+              source={require("../../assets/image4.png")}
             />
           </Pressable>
           <Text style={[styles.aIm, styles.aImTypo]}>Thư viện</Text>
@@ -31,7 +31,7 @@ const TaChcNng = () => {
           <Image
             style={[styles.imageIcon, styles.iconSpaceBlock]}
             contentFit="cover"
-            source={require("../assets/image5.png")}
+            source={require("../../assets/image5.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Căn tin</Text>
         </Pressable>
@@ -42,7 +42,7 @@ const TaChcNng = () => {
           <Image
             style={[styles.imageIcon, styles.iconSpaceBlock]}
             contentFit="cover"
-            source={require("../assets/image6.png")}
+            source={require("../../assets/image6.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Nhà thể thao</Text>
         </Pressable>
@@ -53,7 +53,7 @@ const TaChcNng = () => {
           <Image
             style={[styles.imageIcon, styles.iconSpaceBlock]}
             contentFit="cover"
-            source={require("../assets/image7.png")}
+            source={require("../../assets/image7.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Tiệm photo</Text>
         </Pressable>
@@ -64,18 +64,18 @@ const TaChcNng = () => {
           <Image
             style={[styles.imageIcon, styles.iconSpaceBlock]}
             contentFit="cover"
-            source={require("../assets/image8.png")}
+            source={require("../../assets/image8.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Nhà xe</Text>
         </Pressable>
-      </View>
+      </ScrollView>
       <View style={styles.top}>
         <View style={[styles.statusBar, styles.barFlexBox]}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
               contentFit="cover"
-              source={require("../assets/ui.png")}
+              source={require("../../assets/ui.png")}
             />
             <View style={styles.time}>
               <Text style={[styles.time1, styles.time1Clr]}>9:27</Text>
@@ -89,7 +89,7 @@ const TaChcNng = () => {
           <Image
             style={styles.backChild}
             contentFit="cover"
-            source={require("../assets/vector-9.png")}
+            source={require("../../assets/vector-9.png")}
           />
           <Text style={[styles.back1, styles.aImTypo]}>Khuôn viên</Text>
         </Pressable>
@@ -102,7 +102,7 @@ const TaChcNng = () => {
           <Image
             style={styles.vectorIcon2}
             contentFit="cover"
-            source={require("../assets/vector.png")}
+            source={require("../../assets/vector.png")}
           />
           <Text style={[styles.thngBo, styles.time1Clr]}>Thông báo</Text>
         </Pressable>
@@ -113,7 +113,7 @@ const TaChcNng = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlyboldhome.png")}
+            source={require("../../assets/iconlyboldhome.png")}
           />
           <Text style={[styles.thngBo, styles.time1Clr]}>Trang chủ</Text>
         </Pressable>
@@ -124,7 +124,7 @@ const TaChcNng = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlylightprofile5.png")}
+            source={require("../../assets/iconlylightprofile5.png")}
           />
           <Text style={[styles.thngBo, styles.time1Clr]}>Tài khoản</Text>
         </Pressable>

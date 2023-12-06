@@ -1,15 +1,15 @@
 import * as React from "react";
-import { Text, StyleSheet, View, Pressable } from "react-native";
+import { Text, StyleSheet, View, Pressable, ScrollView } from "react-native";
 import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
-import { FontSize, Border, Color, FontFamily, Padding } from "../GlobalStyles";
+import { FontSize, Border, Color, FontFamily, Padding } from "../../GlobalStyles";
 
 const ToHcTp = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.toHcTp1}>
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <Text style={styles.taNhHc1}>Tòa nhà học tập</Text>
         <Pressable
           style={styles.cardShadowBox}
@@ -18,7 +18,7 @@ const ToHcTp = () => {
           <Image
             style={[styles.imageIcon, styles.imagePosition]}
             contentFit="cover"
-            source={require("../assets/image.png")}
+            source={require("../../assets/image.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Tòa H1</Text>
         </Pressable>
@@ -30,7 +30,7 @@ const ToHcTp = () => {
             <Image
               style={[styles.icon, styles.iconSpaceBlock]}
               contentFit="cover"
-              source={require("../assets/image1.png")}
+              source={require("../../assets/image1.png")}
             />
           </Pressable>
           <Text style={[styles.aIm, styles.aImTypo]}>Tòa H2</Text>
@@ -42,7 +42,7 @@ const ToHcTp = () => {
           <Image
             style={[styles.imageIcon, styles.imagePosition]}
             contentFit="cover"
-            source={require("../assets/image2.png")}
+            source={require("../../assets/image2.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Tòa H3</Text>
         </Pressable>
@@ -53,11 +53,11 @@ const ToHcTp = () => {
           <Image
             style={[styles.imageIcon, styles.imagePosition]}
             contentFit="cover"
-            source={require("../assets/image3.png")}
+            source={require("../../assets/image3.png")}
           />
           <Text style={[styles.aIm, styles.aImTypo]}>Tòa H6</Text>
         </Pressable>
-      </View>
+      </ScrollView>
       <View style={[styles.navBar, styles.barFlexBox]}>
         <Pressable
           style={styles.homeFlexBox}
@@ -66,7 +66,7 @@ const ToHcTp = () => {
           <Image
             style={styles.vectorIcon2}
             contentFit="cover"
-            source={require("../assets/vector.png")}
+            source={require("../../assets/vector.png")}
           />
           <Text style={styles.thngBo}>Thông báo</Text>
         </Pressable>
@@ -77,7 +77,7 @@ const ToHcTp = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlyboldhome.png")}
+            source={require("../../assets/iconlyboldhome.png")}
           />
           <Text style={styles.thngBo}>Trang chủ</Text>
         </Pressable>
@@ -88,7 +88,7 @@ const ToHcTp = () => {
           <Image
             style={styles.iconlyboldhome}
             contentFit="cover"
-            source={require("../assets/iconlylightprofile5.png")}
+            source={require("../../assets/iconlylightprofile5.png")}
           />
           <Text style={styles.thngBo}>Tài khoản</Text>
         </Pressable>
@@ -99,7 +99,7 @@ const ToHcTp = () => {
             <Image
               style={styles.uiIcon}
               contentFit="cover"
-              source={require("../assets/ui.png")}
+              source={require("../../assets/ui.png")}
             />
             <View style={styles.time}>
               <Text style={[styles.time1, styles.time1Typo]}>9:27</Text>
@@ -110,7 +110,7 @@ const ToHcTp = () => {
           <Image
             style={styles.backChild}
             contentFit="cover"
-            source={require("../assets/vector-9.png")}
+            source={require("../../assets/vector-9.png")}
           />
           <Text style={[styles.back1, styles.time1Typo]}>Khuôn viên</Text>
         </Pressable>
