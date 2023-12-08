@@ -1,79 +1,90 @@
 const Stack = createNativeStackNavigator();
-import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import ChiTitCuLcB from "./screens/ChiTitCuLcB";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import TrungTmHTr from "./screens/TrungTmHTr";
-import CiTVBoMt from "./screens/CiTVBoMt";
-import ChiTitSKin from "./screens/ChiTitSKin";
-import SKinLu from "./screens/SKinLu";
-import ThngTinTiKhon from "./screens/ThngTinTiKhon";
-import ThngTinVTrng from "./screens/ThngTinVTrng";
-import ChngTrnhOTo from "./screens/ChngTrnhOTo";
-import GiiThiu from "./screens/GiiThiu";
-import ToHcTp from "./screens/StudyBuilding";
-import DnNg from "./screens/DnNg";
-import ThngTinAIm from "./screens/ThngTinAIm";
-import TaChcNng from "./screens/FeatureBuilding";
-import KhunVin from "./screens/Campus";
-import ChiTitHngNghip from "./screens/ChiTitHngNghip";
-import HngNghip from "./screens/HngNghip";
-import QutMQR from "./screens/QutMQR";
-import ThngBo from "./screens/Announce";
-import CmNBoLiGp from "./screens/CmNBoLiGp";
-import NiDungBoLiGp from "./screens/NiDungBoLiGp";
-import BoLiGp from "./screens/BoLiGp";
-import Home from "./screens/Home";
-import ThngTinCNhn from "./screens/ThngTinCNhn";
-import CuLcBSKin from "./screens/CuLcBSKin";
-import OnboardingScreen1 from './screens/Onboarding/onboarding-1'
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
-
-import {
-  GestureHandlerRootView,
-  RectButton,
-} from "react-native-gesture-handler";
+import Login from '@/screens/Login';
+import Register from '@/screens/Register';
+import Onboarding from '@/screens/Onboardings';
+import Welcome from '@/screens/Welcome';
+import Home from '@/screens/Home';
+import Announce from '@/screens/Announce';
+import Campus from '@/screens/Campus';
+import StudyBuilding from '@/screens/StudyBuilding';
+import FeatureBuilding from '@/screens/FeatureBuilding';
+import Location from '@/screens/Location';
+import ChiTitCuLcB from '@/screens/ChiTitCuLcB';
+import TrungTmHTr from '@/screens/TrungTmHTr';
+import CiTVBoMt from '@/screens/CiTVBoMt';
+import ChiTitSKin from '@/screens/ChiTitSKin';
+import SKinLu from '@/screens/SKinLu';
+import ThngTinTiKhon from '@/screens/ThngTinTiKhon';
+import ThngTinVTrng from '@/screens/ThngTinVTrng';
+import ChngTrnhOTo from '@/screens/ChngTrnhOTo';
+import GiiThiu from '@/screens/GiiThiu';
+import DnNg from '@/screens/DnNg';
+import ThngTinAIm from '@/screens/ThngTinAIm';
+import ChiTitHngNghip from '@/screens/ChiTitHngNghip';
+import HngNghip from '@/screens/HngNghip';
+import QutMQR from '@/screens/QutMQR';
+import CmNBoLiGp from '@/screens/CmNBoLiGp';
+import NiDungBoLiGp from '@/screens/NiDungBoLiGp';
+import BoLiGp from '@/screens/BoLiGp';
+import ThngTinCNhn from '@/screens/ThngTinCNhn';
+import CuLcBSKin from '@/screens/CuLcBSKin';
+import { useFonts } from 'expo-font';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
+  const [fontsLoaded] = useFonts({
+    Montserrat: require('./assets/fonts/Montserrat-Regular.ttf'),
+    MontserratBold: require('./assets/fonts/Montserrat-Bold.ttf'),
+    MontserratBoldItalic: require('./assets/fonts/Montserrat-BoldItalic.ttf'),
+    Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
+    RobotoBold: require('./assets/fonts/Roboto-Bold.ttf'),
+    RobotoMono: require('./assets/fonts/RobotoMono-Regular.ttf'),
+    RobotoMonoBold: require('./assets/fonts/RobotoMono-Bold.ttf'),
+    RobotoFlex: require('./assets/fonts/RobotoFlex-Regular.ttf'),
+    Poppins: require('./assets/fonts/Poppins-Regular.ttf'),
+    PoppinsBold: require('./assets/fonts/Poppins-Bold.ttf'),
+    DancingScript: require('./assets/fonts/DancingScript-Regular.ttf'),
+    DancingScriptBold: require('./assets/fonts/DancingScript-Bold.ttf')
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <NavigationContainer>
           {hideSplashScreen ? (
-            <Stack.Navigator
-              initialRouteName="OnboardingScreen1"
-              screenOptions={{ headerShown: false }}
-            >
+            <Stack.Navigator initialRouteName="Onboarding">
               <Stack.Screen
-                name="Onboarding1"
-                component={OnboardingScreen1}
+                name="Onboarding"
+                component={Onboarding}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Welcome"
+                component={Welcome}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Register"
+                component={Register}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
                 name="ChiTitCuLcB"
                 component={ChiTitCuLcB}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="LoginScreen"
-                component={LoginScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="RegisterScreen"
-                component={RegisterScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="WelcomeScreen"
-                component={WelcomeScreen}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -117,8 +128,13 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ToHcTp"
-                component={ToHcTp}
+                name="StudyBuilding"
+                component={StudyBuilding}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Location"
+                component={Location}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -132,13 +148,13 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="TaChcNng"
-                component={TaChcNng}
+                name="FeatureBuilding"
+                component={FeatureBuilding}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="KhunVin"
-                component={KhunVin}
+                name="Campus"
+                component={Campus}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -157,8 +173,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ThngBo"
-                component={ThngBo}
+                name="Announce"
+                component={Announce}
                 options={{ headerShown: false }}
               />
               <Stack.Screen

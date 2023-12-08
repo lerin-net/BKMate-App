@@ -12,12 +12,12 @@
     },
     "production": {},
     "simulator": {
-      "ios" : {
-        "simulator" : true
+      "ios": {
+        "simulator": true
       }
     },
     "androidapk": {
-      "android" : {
+      "android": {
         "buildType": "apk"
       }
     }
