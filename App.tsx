@@ -2,35 +2,35 @@ const Stack = createNativeStackNavigator();
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Login from '@/screens/Login';
-import Register from '@/screens/Register';
+import Login from '@/screens/Auth/Login';
+import Register from '@/screens/Auth/Register';
 import Onboarding from '@/screens/Onboardings';
 import Welcome from '@/screens/Welcome';
 import Home from '@/screens/Home';
 import Announce from '@/screens/Announce';
 import Campus from '@/screens/Campus';
-import StudyBuilding from '@/screens/StudyBuilding';
-import FeatureBuilding from '@/screens/FeatureBuilding';
-import Location from '@/screens/Location';
-import ChiTitCuLcB from '@/screens/ChiTitCuLcB';
+import StudyBuilding from '@/screens/Campus/StudyBuilding';
+import FeatureBuilding from '@/screens/Campus/FeatureBuilding';
+import Location from '@/screens/Campus/Location';
+import ClubDetail from '@/screens/Club/ClubDetail';
 import TrungTmHTr from '@/screens/TrungTmHTr';
 import CiTVBoMt from '@/screens/CiTVBoMt';
-import ChiTitSKin from '@/screens/ChiTitSKin';
+import EventDetail from '@/screens/Club/EventDetail';
 import SKinLu from '@/screens/SKinLu';
 import ThngTinTiKhon from '@/screens/ThngTinTiKhon';
-import ThngTinVTrng from '@/screens/ThngTinVTrng';
-import ChngTrnhOTo from '@/screens/ChngTrnhOTo';
-import GiiThiu from '@/screens/GiiThiu';
+import AboutSchool from '@/screens/Introduction/AboutSchool';
+import StudyProgram from '@/screens/Introduction/StudyProgram';
+import Introduce from '@/screens/Introduction';
 import DnNg from '@/screens/DnNg';
-import ThngTinAIm from '@/screens/ThngTinAIm';
-import ChiTitHngNghip from '@/screens/ChiTitHngNghip';
-import HngNghip from '@/screens/HngNghip';
-import QutMQR from '@/screens/QutMQR';
+import LocationDetail from '@/screens/Campus/LocationDetail';
+import CareerDetail from '@/screens/CareerEvent/CareerDetail';
+import Career from '@/screens/CareerEvent';
+import ScanQR from '@/screens/ScanQR';
 import CmNBoLiGp from '@/screens/CmNBoLiGp';
 import NiDungBoLiGp from '@/screens/NiDungBoLiGp';
 import BoLiGp from '@/screens/BoLiGp';
 import ThngTinCNhn from '@/screens/ThngTinCNhn';
-import CuLcBSKin from '@/screens/CuLcBSKin';
+import CuLcBSKin from '@/screens/Club';
 import { useFonts } from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -83,8 +83,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ChiTitCuLcB"
-                component={ChiTitCuLcB}
+                name="ClubDetail"
+                component={ClubDetail}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -98,8 +98,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ChiTitSKin"
-                component={ChiTitSKin}
+                name="EventDetail"
+                component={EventDetail}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -113,18 +113,18 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ThngTinVTrng"
-                component={ThngTinVTrng}
+                name="AboutSchool"
+                component={AboutSchool}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ChngTrnhOTo"
-                component={ChngTrnhOTo}
+                name="StudyProgram"
+                component={StudyProgram}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="GiiThiu"
-                component={GiiThiu}
+                name="Introduce"
+                component={Introduce}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -143,8 +143,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ThngTinAIm"
-                component={ThngTinAIm}
+                name="LocationDetail"
+                component={LocationDetail}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -158,18 +158,18 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ChiTitHngNghip"
-                component={ChiTitHngNghip}
+                name="CareerDetail"
+                component={CareerDetail}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="HngNghip"
-                component={HngNghip}
+                name="Career"
+                component={Career}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="QutMQR"
-                component={QutMQR}
+                name="ScanQR"
+                component={ScanQR}
                 options={{ headerShown: false }}
               />
               <Stack.Screen

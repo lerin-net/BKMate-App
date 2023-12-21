@@ -1,49 +1,45 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
-import BuildingCard from '@/components/BuildingCard';
+import Card from '@/components/Card';
 import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
-    image: require('@/assets/image4.png'),
-    name: 'Thư viện',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image.png'),
+    name: 'Tòa H1',
+    link: 'Location'
   },
   {
-    image: require('@/assets/image5.png'),
-    name: 'Căn tin',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image1.png'),
+    name: 'Tòa H2',
+    link: 'Location'
   },
   {
-    image: require('@/assets/image6.png'),
-    name: 'Nhà thể thao',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image2.png'),
+    name: 'Tòa H3',
+    link: 'Location'
   },
   {
-    image: require('@/assets/image7.png'),
-    name: 'Tiệm in',
-    link: 'ThngTinAIm'
-  },
-  {
-    image: require('@/assets/image8.png'),
-    name: 'Nhà xe',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image3.png'),
+    name: 'Tòa H6',
+    link: 'Location'
   }
 ];
 
-const FeatureBuilding = () => {
+const StudyBuilding = () => {
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <View style={styles.header}>
         <GoBackButton toPage="Khuôn viên" />
-        <Text style={styles.title}>Tòa nhà chức năng</Text>
+        <Text style={styles.title}>Tòa nhà học tập</Text>
       </View>
       <ScrollView>
         <View style={styles.content}>
           {buildingsList.map((building, index) => (
-            <BuildingCard
+            <Card
               key={index}
               name={building.name}
               image={building.image}
@@ -52,15 +48,13 @@ const FeatureBuilding = () => {
           ))}
         </View>
       </ScrollView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 
 const styles = StyleSheet.create({
   screen: {
-    height: Dimensions.get('window').height,
-    backgroundColor: Color.white
+    height: Dimensions.get('window').height
   },
   header: {
     paddingHorizontal: 20,
@@ -80,4 +74,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default FeatureBuilding;
+export default StudyBuilding;

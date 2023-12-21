@@ -1,49 +1,50 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
-import BuildingCard from '@/components/BuildingCard';
+import Card from '@/components/Card';
 import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
-    image: require('@/assets/lythuyet.jpg'),
-    name: 'Phòng học lý thuyết',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image4.png'),
+    name: 'Thư viện',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/thuchanh.jpg'),
-    name: 'Phòng thực hành',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image5.png'),
+    name: 'Căn tin',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/thinghiem.jpg'),
-    name: 'Phòng thí nghiệm',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image6.png'),
+    name: 'Nhà thể thao',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/tuhoc.jpg'),
-    name: 'Khu tự học',
-    link: 'ThngTinAIm'
+    image: require('@/assets/image7.png'),
+    name: 'Tiệm in',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/thietbi.jpg'),
-    name: 'Phòng thiết bị',
-    link: 'FeatureBuilding'
+    image: require('@/assets/image8.png'),
+    name: 'Nhà xe',
+    link: 'LocationDetail'
   }
 ];
 
-const Location = () => {
+const FeatureBuilding = () => {
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <View style={styles.header}>
-        <GoBackButton toPage="Tòa nhà học tập" />
-        <Text style={styles.title}>Địa điểm</Text>
+        <GoBackButton toPage="Khuôn viên" />
+        <Text style={styles.title}>Tòa nhà chức năng</Text>
       </View>
       <ScrollView>
         <View style={styles.content}>
           {buildingsList.map((building, index) => (
-            <BuildingCard
+            <Card
               key={index}
               name={building.name}
               image={building.image}
@@ -52,8 +53,7 @@ const Location = () => {
           ))}
         </View>
       </ScrollView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Location;
+export default FeatureBuilding;

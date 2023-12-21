@@ -13,8 +13,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 import NavigationBar from '@/components/NavigationBar';
-import BuildingCard from '@/components/BuildingCard';
+import Card from '@/components/Card';
 import GoBackButton from '@/components/GoBackButton';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
@@ -34,7 +35,7 @@ const Campus = () => {
   const [inputSearch, setInputSearch] = useState('');
 
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <LinearGradient
         style={styles.header}
         locations={[0.03, 0.61]}
@@ -77,7 +78,7 @@ const Campus = () => {
         <View style={styles.content}>
           <Text style={styles.areaText}>Khu vực</Text>
           {buildingsList.map((building, index) => (
-            <BuildingCard
+            <Card
               key={index}
               name={building.name}
               image={building.image}
@@ -86,8 +87,7 @@ const Campus = () => {
           ))}
         </View>
       </ScrollView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 

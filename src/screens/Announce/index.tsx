@@ -4,6 +4,7 @@ import { StyleSheet, View, Text, ScrollView, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontFamily, FontSize, Color } from '@/theme/GlobalStyles';
 import NavigationBar from '@/components/NavigationBar';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const announcementList = [
   {
@@ -38,7 +39,7 @@ const announcementList = [
 
 const Announce = () => {
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <LinearGradient
         style={styles.header}
         locations={[0.03, 0.61]}
@@ -68,8 +69,7 @@ const Announce = () => {
           </View>
         ))}
       </ScrollView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 

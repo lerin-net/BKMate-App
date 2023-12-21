@@ -24,7 +24,7 @@ const SKinLu = () => {
         />
         <Pressable
           style={[styles.sKin11, styles.kinLayout]}
-          onPress={() => navigation.navigate('ChiTitSKin')}
+          onPress={() => navigation.navigate('EventDetail')}
         >
           <View style={[styles.sKin1Child, styles.menuBarPosition]} />
           <Image
@@ -37,7 +37,7 @@ const SKinLu = () => {
         </Pressable>
         <Pressable
           style={[styles.sKin21, styles.kinLayout]}
-          onPress={() => navigation.navigate('ChiTitSKin')}
+          onPress={() => navigation.navigate('EventDetail')}
         >
           <View style={[styles.sKin1Child, styles.menuBarPosition]} />
           <Image
@@ -50,7 +50,7 @@ const SKinLu = () => {
         </Pressable>
         <Pressable
           style={[styles.sKin31, styles.kinPosition]}
-          onPress={() => navigation.navigate('ChiTitSKin')}
+          onPress={() => navigation.navigate('EventDetail')}
         >
           <View style={[styles.sKin1Child, styles.menuBarPosition]} />
           <Image
@@ -63,7 +63,7 @@ const SKinLu = () => {
         </Pressable>
         <Pressable
           style={[styles.sKin41, styles.kinPosition]}
-          onPress={() => navigation.navigate('ChiTitSKin')}
+          onPress={() => navigation.navigate('EventDetail')}
         >
           <View style={[styles.sKin1Child, styles.menuBarPosition]} />
           <Image

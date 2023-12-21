@@ -21,12 +21,13 @@ import {
   Border
 } from '@/theme/GlobalStyles';
 import NavigationBar from '@/components/NavigationBar';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const iconButtonList = [
   {
     image: require('@/assets/icon.png'),
     text: 'Giới thiệu',
-    link: 'GiiThiu'
+    link: 'Introduce'
   },
   {
     image: require('@/assets/icon1.png'),
@@ -41,12 +42,12 @@ const iconButtonList = [
   {
     image: require('@/assets/icon3.png'),
     text: 'Hướng nghiệp',
-    link: 'HngNghip'
+    link: 'Career'
   },
   {
     image: require('@/assets/icon4.png'),
     text: 'Quét mã QR',
-    link: 'QutMQR'
+    link: 'ScanQR'
   },
   {
     image: require('@/assets/icon5.png'),
@@ -64,7 +65,7 @@ const Home = () => {
   const navigation = useNavigation();
   const [inputSearch, setInputSearch] = useState('');
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'android' ? 'height' : 'padding'}
         style={{ flex: 1 }}
@@ -129,17 +130,15 @@ const Home = () => {
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    height: Dimensions.get('window').height,
-    justifyContent: 'space-between',
-    backgroundColor: Color.white
-  },
+  // screen: {
+  //   height: Dimensions.get('window').height,
+  //   backgroundColor: Color.white
+  // },
   header: {
     paddingBottom: 10,
     paddingTop: 65,

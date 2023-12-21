@@ -1,44 +1,49 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
-import BuildingCard from '@/components/BuildingCard';
+import Card from '@/components/Card';
 import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
 
 const buildingsList = [
   {
-    image: require('@/assets/image.png'),
-    name: 'Tòa H1',
-    link: 'Location'
+    image: require('@/assets/lythuyet.jpg'),
+    name: 'Phòng học lý thuyết',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/image1.png'),
-    name: 'Tòa H2',
-    link: 'Location'
+    image: require('@/assets/thuchanh.jpg'),
+    name: 'Phòng thực hành',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/image2.png'),
-    name: 'Tòa H3',
-    link: 'Location'
+    image: require('@/assets/thinghiem.jpg'),
+    name: 'Phòng thí nghiệm',
+    link: 'LocationDetail'
   },
   {
-    image: require('@/assets/image3.png'),
-    name: 'Tòa H6',
-    link: 'Location'
+    image: require('@/assets/tuhoc.jpg'),
+    name: 'Khu tự học',
+    link: 'LocationDetail'
+  },
+  {
+    image: require('@/assets/thietbi.jpg'),
+    name: 'Phòng thiết bị',
+    link: 'FeatureBuilding'
   }
 ];
 
-const StudyBuilding = () => {
+const Location = () => {
   return (
-    <View style={[styles.screen]}>
+    <View style={styles.screen}>
       <View style={styles.header}>
-        <GoBackButton toPage="Khuôn viên" />
-        <Text style={styles.title}>Tòa nhà học tập</Text>
+        <GoBackButton toPage="Tòa nhà học tập" />
+        <Text style={styles.title}>Địa điểm</Text>
       </View>
       <ScrollView>
         <View style={styles.content}>
           {buildingsList.map((building, index) => (
-            <BuildingCard
+            <Card
               key={index}
               name={building.name}
               image={building.image}
@@ -54,7 +59,8 @@ const StudyBuilding = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    height: Dimensions.get('window').height
+    height: Dimensions.get('window').height,
+    backgroundColor: Color.white
   },
   header: {
     paddingHorizontal: 20,
@@ -74,4 +80,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default StudyBuilding;
+export default Location;

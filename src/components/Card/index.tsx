@@ -4,15 +4,27 @@ import { StyleSheet, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 
-function BuildingCard(props) {
+function Card(props) {
   const navigation = useNavigation();
   return (
     <Pressable
-      style={styles.cardShadowBox}
-      onPress={() => navigation.navigate(props.link)}
+      style={[styles.cardShadowBox, props?.cardStyle && props.cardStyle]}
+      onPress={() => {
+        props?.link && navigation.navigate(props?.link);
+      }}
     >
-      <Image style={styles.imageIcon} contentFit="cover" source={props.image} />
-      <Text style={styles.buildingName}>{props.name}</Text>
+      <Image
+        style={[styles.imageIcon, props?.imageStyle && props.imageStyle]}
+        contentFit="cover"
+        source={props.image}
+      />
+      {props.name && (
+        <Text
+          style={[styles.buildingName, props?.textStyle && props.textStyle]}
+        >
+          {props.name}
+        </Text>
+      )}
     </Pressable>
   );
 }
@@ -49,4 +61,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BuildingCard;
+export default Card;

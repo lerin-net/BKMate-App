@@ -4,7 +4,7 @@ import { StyleSheet, Text, Pressable } from 'react-native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 import { useNavigation } from '@react-navigation/native';
 
-export default function GoBackButton(props: { toPage: string }) {
+export default function GoBackButton(props) {
   const navigation = useNavigation();
 
   return (
@@ -14,7 +14,7 @@ export default function GoBackButton(props: { toPage: string }) {
         contentFit="cover"
         source={require('@/assets/vector-92.png')}
       />
-      <Text style={styles.prevPage}>{props.toPage}</Text>
+      <Text style={styles.prevPage}>{props?.toPage && props.toPage}</Text>
     </Pressable>
   );
 }

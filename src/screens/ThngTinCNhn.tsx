@@ -50,7 +50,7 @@ const ThngTinCNhn = () => {
       </Pressable>
       <Pressable
         style={[styles.cHiNghNghip1, styles.ciTBoMt1Position]}
-        onPress={() => navigation.navigate('HngNghip')}
+        onPress={() => navigation.navigate('Career')}
       >
         <View style={[styles.cHiNghNghipChild, styles.childShadowBox]} />
         <Text style={[styles.text11, styles.textTypo1]}></Text>
