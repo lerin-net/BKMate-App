@@ -72,7 +72,7 @@ const eventList = [
   }
 ];
 
-const CuLcBSKin = () => {
+const Club = () => {
   const navigation = useNavigation();
 
   return (
@@ -175,4 +175,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CuLcBSKin;
+export default Club;

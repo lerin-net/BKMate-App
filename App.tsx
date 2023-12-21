@@ -30,7 +30,7 @@ import CmNBoLiGp from '@/screens/CmNBoLiGp';
 import NiDungBoLiGp from '@/screens/NiDungBoLiGp';
 import BoLiGp from '@/screens/BoLiGp';
 import ThngTinCNhn from '@/screens/ThngTinCNhn';
-import CuLcBSKin from '@/screens/Club';
+import Club from '@/screens/Club';
 import { useFonts } from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -203,8 +203,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="CuLcBSKin"
-                component={CuLcBSKin}
+                name="Club"
+                component={Club}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

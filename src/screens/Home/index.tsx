@@ -37,7 +37,7 @@ const iconButtonList = [
   {
     image: require('@/assets/icon2.png'),
     text: 'Sự kiện',
-    link: 'CuLcBSKin'
+    link: 'Club'
   },
   {
     image: require('@/assets/icon3.png'),
