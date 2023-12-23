@@ -50,6 +50,7 @@ export default NavigationBar;
 
 const styles = StyleSheet.create({
   navbar: {
+    zIndex: 1,
     bottom: 0,
     paddingVertical: 10,
     borderColor: '#B6BBC4',
