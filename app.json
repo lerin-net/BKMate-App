@@ -36,6 +36,18 @@
         // "projectId": "55f3ac9d-7989-473b-89a2-f5a500071ec7"
         "projectID": "f1dfcced-2aaa-43f0-8cc9-6a20c55b8713"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera."
+        }
+        // "expo-barcode-scanner",
+        // {
+        //   "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        // }
+      ]
+    ]
   }
 }

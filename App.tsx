@@ -2,35 +2,37 @@ const Stack = createNativeStackNavigator();
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
+import Onboarding from '@/screens/Onboardings';
 import Login from '@/screens/Auth/Login';
 import Register from '@/screens/Auth/Register';
-import Onboarding from '@/screens/Onboardings';
 import Welcome from '@/screens/Welcome';
 import Home from '@/screens/Home';
+import Introduce from '@/screens/Introduction';
+import AboutSchool from '@/screens/Introduction/AboutSchool';
+import StudyProgram from '@/screens/Introduction/StudyProgram';
 import Announce from '@/screens/Announce';
 import Campus from '@/screens/Campus';
 import StudyBuilding from '@/screens/Campus/StudyBuilding';
 import FeatureBuilding from '@/screens/Campus/FeatureBuilding';
 import Location from '@/screens/Campus/Location';
+import LocationDetail from '@/screens/Campus/LocationDetail';
+import Career from '@/screens/CareerEvent';
+import CareerDetail from '@/screens/CareerEvent/CareerDetail';
+import ScanQR from '@/screens/ScanQR';
+import Club from '@/screens/Club';
 import ClubDetail from '@/screens/Club/ClubDetail';
+import EventDetail from '@/screens/Club/EventDetail';
+
 import TrungTmHTr from '@/screens/TrungTmHTr';
 import CiTVBoMt from '@/screens/CiTVBoMt';
-import EventDetail from '@/screens/Club/EventDetail';
 import SKinLu from '@/screens/SKinLu';
 import ThngTinTiKhon from '@/screens/ThngTinTiKhon';
-import AboutSchool from '@/screens/Introduction/AboutSchool';
-import StudyProgram from '@/screens/Introduction/StudyProgram';
-import Introduce from '@/screens/Introduction';
-import DnNg from '@/screens/DnNg';
-import LocationDetail from '@/screens/Campus/LocationDetail';
-import CareerDetail from '@/screens/CareerEvent/CareerDetail';
-import Career from '@/screens/CareerEvent';
-import ScanQR from '@/screens/ScanQR';
+import DirectRoute from '@/screens/Campus/DirectRoute';
 import CmNBoLiGp from '@/screens/CmNBoLiGp';
 import NiDungBoLiGp from '@/screens/NiDungBoLiGp';
 import BoLiGp from '@/screens/BoLiGp';
 import ThngTinCNhn from '@/screens/ThngTinCNhn';
-import Club from '@/screens/Club';
+
 import { useFonts } from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -138,8 +140,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="DnNg"
-                component={DnNg}
+                name="DirectRoute"
+                component={DirectRoute}
                 options={{ headerShown: false }}
               />
               <Stack.Screen

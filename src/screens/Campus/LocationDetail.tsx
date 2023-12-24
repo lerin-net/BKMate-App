@@ -54,7 +54,7 @@ const LocationDetail = () => {
         </View>
         <Pressable
           style={styles.startButton}
-          onPress={() => navigation.navigate('DnNg')}
+          onPress={() => navigation.navigate('DirectRoute')}
         >
           <Text style={[styles.buttonText]}>{`Dẫn Đường`}</Text>
         </Pressable>
