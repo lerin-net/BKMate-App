@@ -1,9 +1,11 @@
 import NavigationBar from '@/components/NavigationBar';
 import { Color } from '@/theme/GlobalStyles';
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View, StatusBar } from 'react-native';
 
-export default function BaseLayout({ children }) {
+export default function BaseLayout({ children }: { children: React.ReactNode }) {
+  const screenHeight = Dimensions.get('window').height - (StatusBar.currentHeight ?? 0);
+
   return (
     <View style={styles.screen}>
       {children}
@@ -14,8 +16,7 @@ export default function BaseLayout({ children }) {
 
 const styles = StyleSheet.create({
   screen: {
-    height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width,
+    flex: 1,
     backgroundColor: Color.white,
     justifyContent: 'space-between'
   }

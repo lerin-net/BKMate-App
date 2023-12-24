@@ -5,7 +5,8 @@ import {
   View,
   Text,
   Pressable,
-  Dimensions
+  Dimensions,
+  StatusBar
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
@@ -15,8 +16,8 @@ import Study from '@/assets/svg/Study.svg';
 import School from '@/assets/svg/School.svg';
 import QRCode from '@/assets/svg/QRCode.svg';
 
-const { width, height } = Dimensions.get('window');
-
+const width = Dimensions.get('window').width;
+const height = Dimensions.get('window').height + (StatusBar.currentHeight ?? 0);
 const slides = () => [
   {
     id: 1,
