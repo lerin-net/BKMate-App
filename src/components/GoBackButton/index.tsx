@@ -8,7 +8,10 @@ export default function GoBackButton(props) {
   const navigation = useNavigation();
 
   return (
-    <Pressable style={styles.backFlexBox} onPress={() => navigation.goBack()}>
+    <Pressable
+      style={[styles.backFlexBox, props?.style && props.style]}
+      onPress={() => navigation.goBack()}
+    >
       <Image
         style={styles.backIcon}
         contentFit="cover"

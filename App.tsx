@@ -36,6 +36,7 @@ import ThngTinCNhn from '@/screens/ThngTinCNhn';
 import { useFonts } from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
@@ -53,8 +54,25 @@ const App = () => {
     DancingScript: require('./assets/fonts/DancingScript-Regular.ttf'),
     DancingScriptBold: require('./assets/fonts/DancingScript-Bold.ttf')
   });
+  const [isAppFirstLaunched, setIsAppFirstLaunched] = React.useState<
+    boolean | null
+  >(null);
 
-  if (!fontsLoaded) {
+  React.useEffect(() => {
+    const fetchData = async () => {
+      const appData = await AsyncStorage.getItem('isAppFirstLaunched');
+      if (appData === null) {
+        setIsAppFirstLaunched(true);
+        await AsyncStorage.setItem('isAppFirstLaunched', 'false');
+      } else {
+        setIsAppFirstLaunched(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!fontsLoaded || isAppFirstLaunched === null) {
     return null;
   }
 

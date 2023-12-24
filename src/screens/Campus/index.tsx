@@ -47,7 +47,7 @@ const Campus = () => {
           <Text style={styles.titleText}>Khuôn viên</Text>
           <Image
             style={styles.mapIcon}
-            contentFit="cover"
+            contentFit="contain"
             source={require('@/assets/vector1.png')}
           />
         </View>
@@ -92,10 +92,6 @@ const Campus = () => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    height: Dimensions.get('window').height,
-    backgroundColor: Color.white
-  },
   header: {
     paddingBottom: 10,
     paddingHorizontal: 20,
@@ -103,33 +99,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     rowGap: 20
   },
-  backFlexBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    columnGap: 10
-  },
-  backIcon: {
-    width: 10,
-    height: 17
-  },
-  prevPage: {
-    color: Color.deepskyblue_300,
-    fontSize: FontSize.size_xl,
-    fontFamily: FontFamily.roboto
-  },
   titleFiled: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
   },
   titleText: {
-    fontSize: FontSize.size_16xl,
+    fontSize: 35,
     fontFamily: FontFamily.montserratBold
   },
   mapIcon: {
-    width: 113,
-    height: 89,
-    marginLeft: 8
+    width: 100,
+    height: 70
   },
   inputBox: {
     width: '100%',
@@ -172,8 +153,8 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
-    rowGap: 25
+    paddingBottom: 10,
+    rowGap: Dimensions.get('window').height * 0.015
   },
   areaText: {
     fontSize: FontSize.size_11xl,

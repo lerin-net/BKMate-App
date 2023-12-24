@@ -4,6 +4,7 @@ import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
 import Card from '@/components/Card';
 import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
+import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
@@ -35,7 +36,7 @@ const buildingsList = [
 
 const Location = () => {
   return (
-    <View style={styles.screen}>
+    <BaseLayout>
       <View style={styles.header}>
         <GoBackButton toPage="Tòa nhà học tập" />
         <Text style={styles.title}>Địa điểm</Text>
@@ -52,8 +53,7 @@ const Location = () => {
           ))}
         </View>
       </ScrollView>
-      <NavigationBar />
-    </View>
+    </BaseLayout>
   );
 };
 
@@ -74,8 +74,7 @@ const styles = StyleSheet.create({
     color: Color.gray_200
   },
   content: {
-    paddingHorizontal: 20,
-    paddingVertical: 40,
+    padding: 20,
     rowGap: 20
   }
 });

@@ -92,20 +92,6 @@ const ScanQR = () => {
         ) : (
           <Text>No camera permission</Text>
         )}
-        {/* <Modal visible={openModal} animationType="slide" transparent={true}>
-          <View
-          style={{
-              flex: 1,
-              justifyContent: 'flex-end',
-              alignItems: 'center'
-            }}
-          >
-            <View style={styles.modalContainer}>
-              <Text>{scanData}</Text>
-              <Button title="Scan Again" onPress={() => setOpenModal(false)} />
-            </View>
-          </View>
-        </Modal> */}
       </View>
       <View style={styles.buttonField}>
         <Pressable style={[styles.smButton]} onPress={() => toggleFlash()}>

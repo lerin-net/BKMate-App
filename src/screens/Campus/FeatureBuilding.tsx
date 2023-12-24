@@ -58,10 +58,6 @@ const FeatureBuilding = () => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    height: Dimensions.get('window').height,
-    backgroundColor: Color.white
-  },
   header: {
     paddingHorizontal: 20,
     paddingTop: 40,
@@ -74,8 +70,7 @@ const styles = StyleSheet.create({
     color: Color.gray_200
   },
   content: {
-    paddingHorizontal: 20,
-    paddingVertical: 40,
+    padding: 20,
     rowGap: 20
   }
 });
