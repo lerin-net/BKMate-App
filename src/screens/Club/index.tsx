@@ -22,6 +22,8 @@ import {
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
 
+import { REACT_APP_BASE_URL } from '../../../env';
+
 const clubList = [
   {
     name: 'CLAC',
@@ -74,6 +76,25 @@ const eventList = [
 
 const Club = () => {
   const navigation = useNavigation();
+
+  const [clubs, setClubs] = React.useState([]);
+
+  React.useEffect(() => {
+    const getClubs = async () => {
+      try {
+        const response = await fetch(`${REACT_APP_BASE_URL}/clubs`);
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        setClubs(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getClubs();
+  }, []);
 
   return (
     <BaseLayout>

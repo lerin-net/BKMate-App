@@ -20,10 +20,31 @@ import {
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
 import Card from '@/components/Card';
+import { REACT_APP_BASE_URL } from '../../../env';
 
 const ClubDetail = () => {
   const navigation = useNavigation();
 
+  const [clubEvents, setClubEvents] = React.useState([]);
+
+  React.useEffect(() => {
+    const getClubEvents = async () => {
+      try {
+        const response = await fetch(`${REACT_APP_BASE_URL}/club-events`);
+
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        const data = await response.json();
+        setClubEvents(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getClubEvents();
+  }, []);
+
+  console.log('clubEvents', clubEvents);
   return (
     <BaseLayout>
       <View style={styles.header}>
