@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { StyleSheet, View, Text, Pressable, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  Dimensions,
+  TouchableOpacity
+} from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -30,18 +37,19 @@ const Welcome = () => {
         <Text style={styles.slogan}>Đồng hành cùng thanh xuân của bạn</Text>
       </View>
       <View style={styles.actionButtons}>
-        <Pressable
+        <TouchableOpacity
+          activeOpacity={0.7}
           style={[styles.button, styles.buttonFlexBox]}
           onPress={() => navigation.navigate('Login')}
         >
           <Text style={[styles.button1, styles.buttonTypo]}>Đăng nhập</Text>
-        </Pressable>
-        <Pressable
+        </TouchableOpacity>
+        <TouchableOpacity
           style={[styles.button2, styles.buttonFlexBox]}
           onPress={() => navigation.navigate('Register')}
         >
           <Text style={[styles.button3, styles.buttonTypo]}>Đăng kí</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );

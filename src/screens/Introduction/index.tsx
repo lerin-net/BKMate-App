@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Pressable, ScrollView } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  View,
+  Pressable,
+  ScrollView,
+  TouchableOpacity
+} from 'react-native';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -29,7 +36,8 @@ const Introduce = () => {
         </View>
       </LinearGradient>
       <ScrollView>
-        <Pressable
+        <TouchableOpacity
+          activeOpacity={0.7}
           style={styles.optionCard}
           onPress={() => navigation.navigate('AboutSchool')}
         >
@@ -39,8 +47,9 @@ const Introduce = () => {
             contentFit="cover"
             source={require('@/assets/image-26.png')}
           />
-        </Pressable>
-        <Pressable
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.7}
           style={styles.optionCard}
           onPress={() => navigation.navigate('StudyProgram')}
         >
@@ -50,7 +59,7 @@ const Introduce = () => {
             contentFit="cover"
             source={require('@/assets/image-25.png')}
           />
-        </Pressable>
+        </TouchableOpacity>
       </ScrollView>
     </BaseLayout>
   );

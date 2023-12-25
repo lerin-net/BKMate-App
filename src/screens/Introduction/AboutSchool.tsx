@@ -21,12 +21,9 @@ const AboutSchool = () => {
       <View style={styles.header}>
         <GoBackButton toPage="Giới thiệu" />
         <Text style={styles.title}>Thông tin về trường</Text>
-        <Card
-          // name="library"
-          image={require('@/assets/phng-hc-l-thuyt.png')}
-        />
+        <Card image={require('@/assets/phng-hc-l-thuyt.png')} />
       </View>
-      <ScrollView>
+      <ScrollView style={{ marginHorizontal: 20 }}>
         <View style={styles.infoCard}>
           <View>
             <Text style={styles.subtitle}>LỊCH SỬ</Text>
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.2)',
     borderStyle: 'solid',
     borderRadius: Border.br_mini,
-    margin: 20
+    marginVertical: 20
   },
   describe: {
     lineHeight: 20,

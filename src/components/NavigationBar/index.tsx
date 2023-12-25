@@ -3,13 +3,14 @@ import { Image } from 'expo-image';
 import { StyleSheet, View, Text, Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, FontSize, Color } from '@/theme/GlobalStyles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const NavigationBar = () => {
   const navigation = useNavigation();
 
   return (
     <View style={[styles.navbar]}>
-      <Pressable
+      <TouchableOpacity
         style={styles.navbarIconBox}
         onPress={() => navigation.navigate('Announce')}
       >
@@ -19,8 +20,8 @@ const NavigationBar = () => {
           source={require('@/assets/vector.png')}
         />
         <Text style={[styles.navbarIconText]}>Thông báo</Text>
-      </Pressable>
-      <Pressable
+      </TouchableOpacity>
+      <TouchableOpacity
         style={[styles.navbarIconBox]}
         onPress={() => navigation.navigate('Home')}
       >
@@ -30,8 +31,8 @@ const NavigationBar = () => {
           source={require('@/assets/iconlyboldhome.png')}
         />
         <Text style={[styles.navbarIconText]}>Trang chủ</Text>
-      </Pressable>
-      <Pressable
+      </TouchableOpacity>
+      <TouchableOpacity
         style={[styles.navbarIconBox]}
         onPress={() => navigation.navigate('ThngTinCNhn')}
       >
@@ -41,7 +42,7 @@ const NavigationBar = () => {
           source={require('@/assets/iconlylightprofile5.png')}
         />
         <Text style={[styles.navbarIconText]}>Tài khoản</Text>
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -82,11 +82,13 @@ const App = () => {
         <NavigationContainer>
           {hideSplashScreen ? (
             <Stack.Navigator initialRouteName="Onboarding">
-              <Stack.Screen
-                name="Onboarding"
-                component={Onboarding}
-                options={{ headerShown: false }}
-              />
+              {isAppFirstLaunched && (
+                <Stack.Screen
+                  name="Onboarding"
+                  component={Onboarding}
+                  options={{ headerShown: false }}
+                />
+              )}
               <Stack.Screen
                 name="Welcome"
                 component={Welcome}

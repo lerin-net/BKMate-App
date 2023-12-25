@@ -7,7 +7,8 @@ import {
   Pressable,
   ScrollView,
   Dimensions,
-  TextInput
+  TextInput,
+  TouchableOpacity
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -64,14 +65,14 @@ const Campus = () => {
             onChangeText={(val) => setInputSearch(val)}
           />
         </View>
-        <Pressable style={[styles.searchButton]}>
+        <TouchableOpacity activeOpacity={0.7} style={[styles.searchButton]}>
           <Text style={[styles.searchText]}>Tìm kiếm</Text>
           <Image
             style={styles.arrowRight}
             contentFit="cover"
             source={require('@/assets/arrow--right.png')}
           />
-        </Pressable>
+        </TouchableOpacity>
       </LinearGradient>
 
       <ScrollView>

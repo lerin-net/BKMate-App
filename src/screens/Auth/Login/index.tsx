@@ -6,7 +6,8 @@ import {
   Pressable,
   TextInput,
   ScrollView,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
 } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
@@ -17,6 +18,7 @@ import {
   FontSize,
   FontFamily
 } from '@/theme/GlobalStyles';
+import LoginMethod from '../LoginMethod';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -48,52 +50,55 @@ const Login = () => {
               value={password}
               onChangeText={(val) => setPassword(val)}
             />
-            <Text style={[styles.linkText, styles.forgot]}>Quên mật khẩu?</Text>
+            <TouchableOpacity style={{ alignSelf: 'flex-end' }}>
+              <Text style={[styles.linkText, styles.forgot]}>
+                Quên mật khẩu?
+              </Text>
+            </TouchableOpacity>
             <View style={styles.actions}>
-              <Pressable
+              <TouchableOpacity
+                activeOpacity={0.7}
                 style={styles.loginButton}
                 onPress={() => navigation.navigate('Home')}
               >
                 <Text style={styles.loginText}>Đăng nhập</Text>
-              </Pressable>
-              <Pressable onPress={() => navigation.navigate('Register')}>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                 <Text style={styles.linkText}>Tạo tài khoản</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
 
-          <View style={styles.loginMethod}>
+          {/* <View style={styles.loginMethod}>
             <Text style={styles.another}>Hoặc đăng nhập với</Text>
             <View style={styles.socialMedia}>
-              <View style={styles.media}>
+              <TouchableOpacity style={styles.media}>
                 <Image
                   style={styles.mediaIcon}
                   contentFit="cover"
                   source={require('@/assets/frame-1.png')}
                 />
-              </View>
-              <View style={styles.media}>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.media}>
                 <Image
                   style={styles.mediaIcon}
                   contentFit="cover"
                   source={require('@/assets/wrapper.png')}
                 />
-              </View>
-              <View style={[styles.media]}>
+              </TouchableOpacity>
+              <TouchableOpacity style={[styles.media]}>
                 <Image
                   style={styles.mediaIcon}
                   contentFit="cover"
                   source={require('@/assets/frame-11.png')}
                 />
-              </View>
+              </TouchableOpacity>
             </View>
-            <Text
-              style={[styles.linkText]}
-              onPress={() => navigation.navigate('Home')}
-            >
-              Tiếp tục mà không đăng nhập
-            </Text>
-          </View>
+          </View> */}
+          <LoginMethod />
+          <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <Text style={styles.linkText}>Tiếp tục mà không đăng nhập</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
@@ -141,9 +146,9 @@ const styles = StyleSheet.create({
   },
   forgot: {
     fontFamily: FontFamily.montserratBold,
-    textAlign: 'right',
-    color: Color.deepskyblue_200,
-    width: '100%'
+    // textAlign: 'right',
+    color: Color.deepskyblue_200
+    // width: '100%'
   },
   loginText: {
     fontFamily: FontFamily.montserratBold,

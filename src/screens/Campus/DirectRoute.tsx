@@ -1,54 +1,85 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, View, Text, Pressable, Dimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
 import {
-  FontFamily,
-  FontSize,
-  Color,
-  Border,
-  Padding
-} from '@/theme/GlobalStyles';
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView
+} from 'react-native';
+import { Color, Border } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import MapView, { LatLng, Marker } from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 import * as Location from 'expo-location';
 import GoBackButton from '@/components/GoBackButton';
-import { ScrollView } from 'react-native-gesture-handler';
-
-const colorCircle = require('@/assets/colorCircle.png');
+import { useRoute } from '@react-navigation/native';
 
 const locations = [
   {
-    title: 'H6',
+    id: 'h6',
+    title: 'Tòa nhà H6',
     location: {
       latitude: 10.87965733840307,
       longitude: 106.80582347535405
     },
-    description: 'Tòa nhà H6'
+    image: require('@/assets/h6.png')
   },
   {
-    title: 'H1',
+    id: 'h1',
+    title: 'Tòa nhà H1',
     location: {
       latitude: 10.880394927706838,
       longitude: 106.8042666663415
     },
-    description: 'Tòa nhà H1'
+    image: require('@/assets/h1.png')
+  },
+  {
+    id: 'h2',
+    title: 'Tòa nhà H2',
+    location: {
+      latitude: 10.88073685697445,
+      longitude: 106.8051558506991
+    },
+    image: require('@/assets/h2.png')
+  },
+  {
+    id: 'h3',
+    title: 'Tòa nhà H3',
+    location: {
+      latitude: 10.881263958449358,
+      longitude: 106.80544090518595
+    },
+    image: require('@/assets/h3.png')
+  },
+  {
+    id: 'tdtt',
+    title: 'Nhà học TDTT',
+    location: {
+      latitude: 10.882003602984177,
+      longitude: 106.80610667989814
+    },
+    image: require('@/assets/TDTT.png')
   }
 ];
 
 const DirectRoute = () => {
-  const navigation = useNavigation();
-  const onRegionChange = (region) => {
-    // console.log(region);
+  const route = useRoute();
+  const { buildingName } = route.params;
+  const targetLocation = locations.find((item) => item.id === buildingName);
+  const [currentLocation, setCurrentLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  }>();
+  const [destination, setDestination] = useState(targetLocation?.location);
+  const [distance, setDistance] = useState('');
+  const [duration, setDuration] = useState('');
+  const [zoomLevel, setZoomLevel] = useState(0);
+  const [startDirection, setStartDirection] = useState(false);
+
+  const handleStartDirection = () => {
+    setStartDirection(!startDirection);
   };
-  const [currentLocation, setCurrentLocation] = useState({
-    latitude: 10.879657338403,
-    longitude: 106.80582347535405
-  });
-  const [distance, setDistance] = useState(0);
-  const [duration, setDuration] = useState(0);
 
   const getLocationPermission = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
@@ -56,7 +87,7 @@ const DirectRoute = () => {
       alert('Permission denied');
       return;
     }
-    const location = await Location.getCurrentPositionAsync({});
+    const location = await Location.getCurrentPositionAsync();
     const current = {
       latitude: location.coords.latitude,
       longitude: location.coords.longitude
@@ -64,9 +95,11 @@ const DirectRoute = () => {
     setCurrentLocation(current);
   };
 
-  useEffect(() => {
-    getLocationPermission();
-  }, []);
+  const handleRegionChangeComplete = (region: any) => {
+    setZoomLevel(region.latitudeDelta);
+  };
+
+  const mapRef = useRef<MapView | null>(null);
 
   const showLocation = () => {
     return locations.map((item, index) => (
@@ -74,109 +107,105 @@ const DirectRoute = () => {
         key={index}
         coordinate={item.location}
         title={item.title}
-        description={item.description}
+        image={item.image}
       />
     ));
   };
+
+  const convertDistance = (distance: number) => {
+    if (distance > 1000) {
+      distance /= 1000;
+      distance = Math.round(distance);
+      return distance.toFixed(2) + ' km';
+    }
+    return Math.round(distance).toString() + ' m';
+  };
+
+  useEffect(() => {
+    getLocationPermission();
+    setTimeout(() => {
+      mapRef.current?.fitToCoordinates([currentLocation, destination], {
+        edgePadding: {
+          bottom: 200,
+          right: 50,
+          top: 150,
+          left: 50
+        },
+        animated: true
+      });
+    }, 300);
+  }, [currentLocation, destination]);
+
+  if (!currentLocation || !destination) return null;
 
   return (
     <BaseLayout>
       <GoBackButton style={styles.header} toPage="Quay về" />
       <View
         style={{
-          flex: 1
+          flex: 1,
+          justifyContent: 'space-between'
         }}
       >
         <MapView
           style={styles.map}
-          onRegionChange={onRegionChange}
+          ref={mapRef}
           initialRegion={{
             latitude: 10.880685267971103,
             longitude: 106.80544956656931,
-            latitudeDelta: 0.009, // Mức độ zoom theo chiều dọc
-            longitudeDelta: 0.004 // Mức độ zoom theo chiều ngang
+            latitudeDelta: 0.009,
+            longitudeDelta: 0.004
           }}
+          showsUserLocation
+          showsMyLocationButton
+          followsUserLocation
+          onRegionChangeComplete={handleRegionChangeComplete}
         >
-          {showLocation()}
+          {zoomLevel < 0.01 && showLocation()}
           <Marker
-            coordinate={currentLocation}
-            title="Vị trí hiện tại"
-            image={colorCircle}
-            style={{ width: 5, height: 5 }}
+            coordinate={destination as LatLng}
+            title={targetLocation?.title}
+            zIndex={1}
           />
-          <MapViewDirections
-            origin={currentLocation}
-            destination={locations[1].location}
-            apikey="AIzaSyCQLj8tTliQQs6RbtVpRsLviCS5rBfpJ1c"
-            strokeColor="#3559E0"
-            strokeWidth={5}
-            optimizeWaypoints={true}
-            onStart={(params) => {
-              console.log(
-                `Started routing between "${params.origin}" and "${params.destination}"`
-              );
-            }}
-            onReady={(result) => {
-              console.log(`Distance: ${result.distance} km`);
-              console.log(`Duration: ${result.duration} min.`);
-              setDistance(result.distance);
-              setDuration(result.duration);
-              // mapView.fitToCoordinates(result.coordinates, {
-              //   edgePadding: {
-              //     right: width / 20,
-              //     bottom: height / 20,
-              //     left: width / 20,
-              //     top: height / 20
-              //   }
-              // });
-            }}
-            onError={(errorMessage) => {
-              console.log('GOT AN ERROR');
-            }}
-          />
+          {startDirection && (
+            <MapViewDirections
+              origin={currentLocation}
+              destination={destination}
+              apikey="AIzaSyCQLj8tTliQQs6RbtVpRsLviCS5rBfpJ1c"
+              strokeColor="#3559E0"
+              strokeWidth={5}
+              optimizeWaypoints={true}
+              onStart={(params) => {
+                console.log(
+                  `Started routing between "${params.origin}" and "${params.destination}"`
+                );
+              }}
+              onReady={(result) => {
+                setDistance(convertDistance(result.distance));
+                setDuration(Math.round(result.duration).toString() + ' phút');
+              }}
+              onError={(errorMessage) => {
+                console.log('GOT AN ERROR');
+              }}
+            />
+          )}
         </MapView>
-
         <View
           style={{
             width: '100%',
             backgroundColor: '#1f1d3d'
           }}
         >
-          <Text
-            style={{
-              color: 'white',
-              alignSelf: 'center',
-              fontSize: 25,
-              marginTop: 10,
-              fontWeight: '700'
-            }}
-          >
-            Tòa nhà H1
-          </Text>
-          <View
-            style={{
-              backgroundColor: 'white',
-              marginTop: 15,
-              borderTopStartRadius: 20,
-              borderTopEndRadius: 20,
-              paddingVertical: 10
-            }}
-          >
+          <Text style={styles.title}>{targetLocation?.title}</Text>
+          <View style={styles.info}>
             <Text
               style={{ alignSelf: 'center', fontSize: 25, fontWeight: '700' }}
             >
-              {Math.round(distance)} km - {Math.round(duration)} phút
+              {startDirection ? `${distance} - ${duration}` : ``}
             </Text>
           </View>
         </View>
-        <ScrollView
-          contentContainerStyle={{
-            backgroundColor: 'white',
-            justifyContent: 'center',
-            padding: 20,
-            rowGap: 20
-          }}
-        >
+        <ScrollView contentContainerStyle={styles.infoContent}>
           <View style={{ flexDirection: 'row', columnGap: 5 }}>
             <Image
               style={{ width: 30, height: 30 }}
@@ -193,8 +222,21 @@ const DirectRoute = () => {
               contentFit="contain"
               source={require('@/assets/mappin.png')}
             />
-            <Text style={{ fontSize: 20, fontWeight: '700' }}>Tòa nhà H1</Text>
+            <Text style={{ fontSize: 20, fontWeight: '700' }}>
+              {targetLocation?.title}
+            </Text>
           </View>
+          <TouchableOpacity
+            style={[
+              styles.startButton,
+              startDirection && { backgroundColor: '#7D0A0A' }
+            ]}
+            onPress={handleStartDirection}
+          >
+            <Text style={[{ color: Color.white, fontSize: 18 }]}>
+              {!startDirection ? 'Bắt đầu' : 'Kết thúc'}
+            </Text>
+          </TouchableOpacity>
         </ScrollView>
       </View>
     </BaseLayout>
@@ -206,11 +248,39 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 40,
     rowGap: 20
-    // borderWidth: 2
   },
   map: {
-    width: '100%',
-    height: '60%'
+    height: '55%'
+  },
+  title: {
+    color: 'white',
+    alignSelf: 'center',
+    fontSize: 25,
+    marginTop: 10,
+    fontWeight: '700'
+  },
+  info: {
+    backgroundColor: 'white',
+    marginTop: 15,
+    borderTopStartRadius: 20,
+    borderTopEndRadius: 20,
+    paddingVertical: 10
+  },
+  infoContent: {
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    rowGap: 20
+  },
+  startButton: {
+    borderRadius: Border.br_base,
+    backgroundColor: Color.deepskyblue_200,
+    paddingVertical: 14,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    width: 150
   }
 });
 

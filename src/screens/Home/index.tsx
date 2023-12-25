@@ -13,15 +13,9 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
-import {
-  FontFamily,
-  FontSize,
-  Color,
-  Padding,
-  Border
-} from '@/theme/GlobalStyles';
-import NavigationBar from '@/components/NavigationBar';
+import { FontFamily, FontSize, Color, Border } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const iconButtonList = [
   {
@@ -100,20 +94,20 @@ const Home = () => {
             />
           </View>
 
-          <Pressable style={[styles.searchButton]}>
+          <TouchableOpacity style={[styles.searchButton]} activeOpacity={0.7}>
             <Text style={[styles.searchText]}>Tìm kiếm</Text>
             <Image
               style={styles.arrowRight}
               contentFit="cover"
               source={require('@/assets/arrow--right1.png')}
             />
-          </Pressable>
+          </TouchableOpacity>
         </LinearGradient>
         <ScrollView>
           <View style={[styles.content]}>
             <View style={styles.featureRows}>
               {iconButtonList.map((button, index) => (
-                <Pressable
+                <TouchableOpacity
                   key={index}
                   style={[styles.iconButton]}
                   onPress={() => navigation.navigate(button.link)}
@@ -124,7 +118,7 @@ const Home = () => {
                     source={button.image}
                   />
                   <Text style={[styles.iconText]}>{button.text}</Text>
-                </Pressable>
+                </TouchableOpacity>
               ))}
             </View>
           </View>

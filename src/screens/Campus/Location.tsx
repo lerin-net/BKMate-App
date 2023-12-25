@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Text, StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
 import Card from '@/components/Card';
-import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
 import BaseLayout from '@/layouts/BaseLayout';
+import { useRoute } from '@react-navigation/native';
 
 const buildingsList = [
   {
@@ -30,11 +30,13 @@ const buildingsList = [
   {
     image: require('@/assets/thietbi.jpg'),
     name: 'Phòng thiết bị',
-    link: 'FeatureBuilding'
+    link: 'LocationDetail'
   }
 ];
 
 const Location = () => {
+  const route = useRoute();
+  const { buildingName } = route.params;
   return (
     <BaseLayout>
       <View style={styles.header}>
@@ -49,6 +51,9 @@ const Location = () => {
               name={building.name}
               image={building.image}
               link={building.link}
+              buildingName={buildingName}
+              locationName={building.name}
+              locationImage={building.image}
             />
           ))}
         </View>
