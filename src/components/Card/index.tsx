@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, Text, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_xl,
     fontFamily: FontFamily.roboto,
     color: Color.white,
-    textShadowColor: 'black', // Color of the border
+    textShadowColor: 'black',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2
   }

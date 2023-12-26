@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { Text, StyleSheet, View, Pressable, ScrollView } from 'react-native';
+import { Text, StyleSheet, View,  ScrollView } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import {
   Padding,
   Border,
-  Color,
   FontFamily,
   FontSize
 } from '@/theme/GlobalStyles';

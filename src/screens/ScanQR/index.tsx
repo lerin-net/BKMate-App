@@ -4,22 +4,12 @@ import {
   StyleSheet,
   View,
   Text,
-  Pressable,
   Dimensions,
-  Button,
-  StatusBar,
-  Modal,
   Linking,
   TouchableOpacity
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {
-  Border,
-  FontFamily,
-  Padding,
-  Color,
-  FontSize
-} from '@/theme/GlobalStyles';
+import { Color } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import { Camera, FlashMode, AutoFocus } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
@@ -40,8 +30,6 @@ const ScanQR = () => {
   };
 
   const handleBarCodeScanned = async ({ data }: { data: string }) => {
-    // setScanData(data);
-    // console.log(data);
     const supported = await Linking.canOpenURL(data);
     if (supported) {
       await Linking.openURL(data);
@@ -129,15 +117,14 @@ const ScanQR = () => {
             contentFit="cover"
             source={require('@/assets/live--sun.png')}
           />
-          {/* <Text>Flash</Text> */}
         </TouchableOpacity>
-        <Pressable style={[styles.lgButton]} onPress={() => pickImage()}>
+        <TouchableOpacity style={[styles.lgButton]} onPress={() => pickImage()}>
           <Image
             style={styles.imageIcon}
             contentFit="cover"
             source={require('@/assets/media--image-01.png')}
           />
-        </Pressable>
+        </TouchableOpacity>
         <TouchableOpacity
           style={[styles.smButton]}
           onPress={() => navigation.navigate('Home')}

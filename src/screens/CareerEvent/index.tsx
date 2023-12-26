@@ -1,20 +1,15 @@
 import * as React from 'react';
-import { Image } from 'expo-image';
 import {
   StyleSheet,
   Text,
   View,
-  Pressable,
-  ScrollView,
   FlatList
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
-  Border,
   Color,
   FontFamily,
   FontSize,
-  Padding
 } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';

@@ -102,23 +102,26 @@ const DirectRoute = () => {
   const mapRef = useRef<MapView | null>(null);
 
   const showLocation = () => {
-    return locations.map((item, index) => (
-      <Marker
-        key={index}
-        coordinate={item.location}
-        title={item.title}
-        image={item.image}
-      />
-    ));
+    return (
+      zoomLevel < 0.01 &&
+      locations.map((item) => (
+        <Marker
+          key={item.id}
+          coordinate={item.location}
+          title={item.title}
+          image={item.image}
+        />
+      ))
+    );
   };
 
   const convertDistance = (distance: number) => {
-    if (distance > 1000) {
-      distance /= 1000;
+    if (distance < 1) {
+      distance *= 1000;
       distance = Math.round(distance);
-      return distance.toFixed(2) + ' km';
+      return distance.toFixed(2) + ' m';
     }
-    return Math.round(distance).toString() + ' m';
+    return Math.round(distance).toString() + ' km';
   };
 
   useEffect(() => {
@@ -161,7 +164,7 @@ const DirectRoute = () => {
           followsUserLocation
           onRegionChangeComplete={handleRegionChangeComplete}
         >
-          {zoomLevel < 0.01 && showLocation()}
+          {showLocation()}
           <Marker
             coordinate={destination as LatLng}
             title={targetLocation?.title}

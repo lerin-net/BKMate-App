@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Pressable,
   TextInput,
   ScrollView,
   Dimensions,
@@ -147,9 +146,7 @@ const styles = StyleSheet.create({
   },
   forgot: {
     fontFamily: FontFamily.montserratBold,
-    // textAlign: 'right',
     color: Color.deepskyblue_200
-    // width: '100%'
   },
   loginText: {
     fontFamily: FontFamily.montserratBold,
