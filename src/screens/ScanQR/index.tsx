@@ -48,20 +48,45 @@ const ScanQR = () => {
   };
 
   const pickImage = async () => {
-    const result = await ImagePicker.launchImageLibraryAsync({
-      allowsEditing: false,
-      quality: 1
-    });
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync({
+        allowsEditing: false,
+        quality: 1,
+        mediaTypes: ImagePicker.MediaTypeOptions.Images
+      });
 
-    // if (!result.canceled) {
-    //   const uri = result.assets[0].uri;
-    //   setImage(uri);
-    //   console.log(uri);
-    //   const decodedBarcodeImage = await BarCodeScanner.scanFromURLAsync(uri, [
-    //     BarCodeScanner.Constants.BarCodeType.qr
-    //   ]);
-    //   console.log(decodedBarcodeImage);
-    // }
+      if (!result.canceled) {
+        const selectedAsset = result.assets[0];
+
+        if (selectedAsset) {
+          const uri = selectedAsset.uri;
+          setImage(uri);
+
+          // Use BarCodeScanner to decode the QR code from the selected image
+          const decodedBarcodeImage = await BarCodeScanner.scanFromURLAsync(
+            uri,
+            [BarCodeScanner.Constants.BarCodeType.qr]
+          );
+
+          if (decodedBarcodeImage && decodedBarcodeImage.length > 0) {
+            const scannedData = decodedBarcodeImage[0].data;
+            setScanData(scannedData);
+
+            // You can now use the scanned data as needed
+            console.log('Scanned QR Code:', scannedData);
+
+            const supported = await Linking.canOpenURL(scannedData);
+            if (supported) {
+              await Linking.openURL(scannedData);
+            }
+          } else {
+            console.log('No QR code found in the selected image.');
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error picking image:', error);
+    }
   };
 
   useEffect(() => {
@@ -102,7 +127,7 @@ const ScanQR = () => {
           />
           {/* <Text>Flash</Text> */}
         </Pressable>
-        <Pressable style={[styles.lgButton]} onPress={pickImage}>
+        <Pressable style={[styles.lgButton]} onPress={() => pickImage()}>
           <Image
             style={styles.imageIcon}
             contentFit="cover"
