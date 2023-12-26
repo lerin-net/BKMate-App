@@ -8,26 +8,31 @@ import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
+    insideBuilding: 'h1',
     image: require('@/assets/image4.png'),
     name: 'Thư viện',
     link: 'LocationDetail'
   },
   {
+    insideBuilding: 'h1',
     image: require('@/assets/image5.png'),
     name: 'Căn tin',
     link: 'LocationDetail'
   },
   {
+    insideBuilding: 'tdtt',
     image: require('@/assets/image6.png'),
     name: 'Nhà thể thao',
     link: 'LocationDetail'
   },
   {
+    insideBuilding: 'h1',
     image: require('@/assets/image7.png'),
     name: 'Tiệm in',
     link: 'LocationDetail'
   },
   {
+    insideBuilding: 'h6',
     image: require('@/assets/image8.png'),
     name: 'Nhà xe',
     link: 'LocationDetail'
@@ -49,6 +54,9 @@ const FeatureBuilding = () => {
               name={building.name}
               image={building.image}
               link={building.link}
+              buildingName={building.insideBuilding}
+              locationName={building.name}
+              locationImage={building.image}
             />
           ))}
         </View>

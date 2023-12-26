@@ -1,16 +1,22 @@
 import React from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, Text, Pressable } from 'react-native';
+import { StyleSheet, Text, Pressable, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 
 function Card(props) {
   const navigation = useNavigation();
   return (
-    <Pressable
+    <TouchableOpacity
+      activeOpacity={0.7}
       style={[styles.cardShadowBox, props?.cardStyle && props.cardStyle]}
       onPress={() => {
-        props?.link && navigation.navigate(props?.link);
+        props?.link &&
+          navigation.navigate(props?.link, {
+            buildingName: props?.buildingName,
+            locationName: props?.locationName,
+            locationImage: props?.locationImage
+          });
       }}
     >
       <Image
@@ -25,7 +31,7 @@ function Card(props) {
           {props.name}
         </Text>
       )}
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 

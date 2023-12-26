@@ -3,12 +3,13 @@ import { Image } from 'expo-image';
 import { StyleSheet, Text, Pressable } from 'react-native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function GoBackButton(props) {
   const navigation = useNavigation();
 
   return (
-    <Pressable
+    <TouchableOpacity
       style={[styles.backFlexBox, props?.style && props.style]}
       onPress={() => navigation.goBack()}
     >
@@ -18,7 +19,7 @@ export default function GoBackButton(props) {
         source={require('@/assets/vector-92.png')}
       />
       <Text style={styles.prevPage}>{props?.toPage && props.toPage}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 }
 

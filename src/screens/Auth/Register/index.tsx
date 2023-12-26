@@ -5,7 +5,9 @@ import {
   Text,
   Pressable,
   TextInput,
-  Dimensions
+  Dimensions,
+  TouchableOpacity,
+  StatusBar
 } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
@@ -17,6 +19,7 @@ import {
   Border
 } from '@/theme/GlobalStyles';
 import { ScrollView } from 'react-native-gesture-handler';
+import LoginMethod from '../LoginMethod';
 
 const Register = () => {
   const navigation = useNavigation();
@@ -68,43 +71,18 @@ const Register = () => {
               onChangeText={(val) => setConfirmPassword(val)}
             />
             <View style={styles.actions}>
-              <Pressable
+              <TouchableOpacity
                 style={styles.loginButton}
                 onPress={() => navigation.navigate('Home')}
               >
                 <Text style={[styles.loginText]}>Đăng kí</Text>
-              </Pressable>
-              <Pressable onPress={() => navigation.navigate('Login')}>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                 <Text style={[styles.linkText]}>Đã có tài khoản ?</Text>
-              </Pressable>
+              </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.loginMethod}>
-            <Text style={[styles.another]}>Hoặc tiếp tục với</Text>
-            <View style={styles.socialMedia}>
-              <View style={styles.media}>
-                <Image
-                  style={styles.mediaIcon}
-                  contentFit="cover"
-                  source={require('@/assets/frame-1.png')}
-                />
-              </View>
-              <View style={[styles.media]}>
-                <Image
-                  style={[styles.mediaIcon]}
-                  contentFit="cover"
-                  source={require('@/assets/wrapper.png')}
-                />
-              </View>
-              <View style={[styles.media]}>
-                <Image
-                  style={styles.mediaIcon}
-                  contentFit="cover"
-                  source={require('@/assets/frame-11.png')}
-                />
-              </View>
-            </View>
-          </View>
+          <LoginMethod />
         </View>
       </ScrollView>
     </View>
@@ -114,7 +92,7 @@ const Register = () => {
 const styles = StyleSheet.create({
   screen: {
     backgroundColor: Color.white,
-    height: Dimensions.get('window').height
+    height: Dimensions.get('window').height + (StatusBar.currentHeight ?? 0)
   },
   content: {
     padding: 20

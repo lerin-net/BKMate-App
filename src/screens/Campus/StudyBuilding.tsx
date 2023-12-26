@@ -8,21 +8,25 @@ import BaseLayout from '@/layouts/BaseLayout';
 
 const buildingsList = [
   {
+    id: 'h1',
     image: require('@/assets/image.png'),
     name: 'Tòa H1',
     link: 'Location'
   },
   {
+    id: 'h2',
     image: require('@/assets/image1.png'),
     name: 'Tòa H2',
     link: 'Location'
   },
   {
+    id: 'h3',
     image: require('@/assets/image2.png'),
     name: 'Tòa H3',
     link: 'Location'
   },
   {
+    id: 'h6',
     image: require('@/assets/image3.png'),
     name: 'Tòa H6',
     link: 'Location'
@@ -44,6 +48,7 @@ const StudyBuilding = () => {
               name={building.name}
               image={building.image}
               link={building.link}
+              buildingName={building.id}
             />
           ))}
         </View>

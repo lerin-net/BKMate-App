@@ -6,7 +6,8 @@ import {
   Text,
   Pressable,
   Dimensions,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
@@ -159,21 +160,21 @@ export default function Onboarding() {
         </View>
         {currentSlideIndex !== slides().length - 1 ? (
           <View style={styles.buttonFiled}>
-            <Pressable style={[styles.button]} onPress={toHomePage}>
+            <TouchableOpacity style={[styles.button]} onPress={toHomePage}>
               <Text style={[styles.buttonText]}>Skip</Text>
-            </Pressable>
-            <Pressable
+            </TouchableOpacity>
+            <TouchableOpacity
               style={[styles.button, styles.nextButton]}
               onPress={goToNextSlide}
             >
               <Text style={styles.buttonText}>{'>'}</Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
         ) : (
           <View style={[styles.buttonFiled, { justifyContent: 'center' }]}>
-            <Pressable style={[styles.button]} onPress={toHomePage}>
+            <TouchableOpacity style={[styles.button]} onPress={toHomePage}>
               <Text style={[styles.buttonText]}>Bắt đầu</Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
         )}
       </View>

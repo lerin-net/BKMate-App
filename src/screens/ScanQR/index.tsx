@@ -9,7 +9,8 @@ import {
   Button,
   StatusBar,
   Modal,
-  Linking
+  Linking,
+  TouchableOpacity
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -119,14 +120,17 @@ const ScanQR = () => {
         )}
       </View>
       <View style={styles.buttonField}>
-        <Pressable style={[styles.smButton]} onPress={() => toggleFlash()}>
+        <TouchableOpacity
+          style={[styles.smButton]}
+          onPress={() => toggleFlash()}
+        >
           <Image
             style={styles.lightIcon}
             contentFit="cover"
             source={require('@/assets/live--sun.png')}
           />
           {/* <Text>Flash</Text> */}
-        </Pressable>
+        </TouchableOpacity>
         <Pressable style={[styles.lgButton]} onPress={() => pickImage()}>
           <Image
             style={styles.imageIcon}
@@ -134,7 +138,7 @@ const ScanQR = () => {
             source={require('@/assets/media--image-01.png')}
           />
         </Pressable>
-        <Pressable
+        <TouchableOpacity
           style={[styles.smButton]}
           onPress={() => navigation.navigate('Home')}
         >
@@ -143,7 +147,7 @@ const ScanQR = () => {
             contentFit="cover"
             source={require('@/assets/vector-7.png')}
           />
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </BaseLayout>
   );
