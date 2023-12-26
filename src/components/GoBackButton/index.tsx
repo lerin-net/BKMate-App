@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, Text, Pressable } from 'react-native';
-import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
+import { StyleSheet, Text } from 'react-native';
+import { FontFamily, Color, FontSize } from '@/theme/GlobalStyles';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

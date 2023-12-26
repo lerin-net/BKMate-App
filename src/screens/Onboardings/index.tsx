@@ -4,7 +4,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Pressable,
   Dimensions,
   StatusBar,
   TouchableOpacity
@@ -207,7 +206,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   content: {
-    // overflow: "hidden",
     width: width,
     justifyContent: 'center',
     alignItems: 'center'

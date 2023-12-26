@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   TextInput,
   KeyboardAvoidingView,
   Platform,
@@ -129,10 +128,6 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
-  // screen: {
-  //   height: Dimensions.get('window').height,
-  //   backgroundColor: Color.white
-  // },
   header: {
     paddingBottom: 10,
     paddingTop: 65,

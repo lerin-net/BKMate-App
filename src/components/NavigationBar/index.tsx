@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, View, Text, Pressable } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, FontSize, Color } from '@/theme/GlobalStyles';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const NavigationBar = () => {
   const navigation = useNavigation();

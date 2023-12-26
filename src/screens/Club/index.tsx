@@ -4,12 +4,10 @@ import {
   Dimensions,
   Text,
   StyleSheet,
-  ImageBackground,
-  Pressable,
   ScrollView,
-  FlatList
+  FlatList,
+  TouchableOpacity
 } from 'react-native';
-import Carousel from 'react-native-reanimated';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -17,7 +15,6 @@ import {
   FontFamily,
   FontSize,
   Border,
-  Padding
 } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
@@ -105,13 +102,13 @@ const Club = () => {
         <Text style={[styles.title]}>Câu lạc bộ</Text>
         <ScrollView horizontal={true} contentContainerStyle={styles.clubList}>
           {clubList.map((club, index) => (
-            <Pressable
+            <TouchableOpacity
               key={index}
               onPress={() => navigation.navigate(club?.link)}
             >
               <Image style={[styles.clubBox]} source={club?.image} />
               <Text style={[styles.clubName]}>{club?.name}</Text>
-            </Pressable>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
@@ -121,7 +118,7 @@ const Club = () => {
         contentContainerStyle={{ gap: 10 }}
         data={eventList}
         renderItem={({ item }) => (
-          <Pressable
+          <TouchableOpacity
             style={[styles.eventBox]}
             onPress={() => navigation.navigate('EventDetail')}
           >
@@ -139,7 +136,7 @@ const Club = () => {
                 Thời gian đăng ký: {item?.registerDate}
               </Text>
             </View>
-          </Pressable>
+          </TouchableOpacity>
         )}
       />
     </BaseLayout>

@@ -3,7 +3,6 @@ import {
   StyleSheet,
   View,
   Text,
-  Pressable,
   TextInput,
   Dimensions,
   TouchableOpacity,

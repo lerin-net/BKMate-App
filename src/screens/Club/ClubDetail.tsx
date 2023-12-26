@@ -1,21 +1,15 @@
 import * as React from 'react';
-import { Image } from 'expo-image';
 import {
   StyleSheet,
   Text,
   View,
-  Linking,
-  Pressable,
   ScrollView,
   Dimensions
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import {
   Color,
   FontFamily,
-  Border,
   FontSize,
-  Padding
 } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
@@ -23,8 +17,6 @@ import Card from '@/components/Card';
 import { REACT_APP_BASE_URL } from '../../../env';
 
 const ClubDetail = () => {
-  const navigation = useNavigation();
-
   const [clubEvents, setClubEvents] = React.useState([]);
 
   React.useEffect(() => {

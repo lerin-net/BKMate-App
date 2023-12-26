@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Pressable,
   ScrollView,
   Dimensions,
   TextInput,
@@ -13,7 +12,6 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
-import NavigationBar from '@/components/NavigationBar';
 import Card from '@/components/Card';
 import GoBackButton from '@/components/GoBackButton';
 import BaseLayout from '@/layouts/BaseLayout';
