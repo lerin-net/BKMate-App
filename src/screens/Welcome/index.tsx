@@ -41,13 +41,13 @@ const Welcome = () => {
         <TouchableOpacity
           activeOpacity={0.7}
           style={[styles.button, styles.buttonFlexBox]}
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('Login' as never)}
         >
           <Text style={[styles.button1, styles.buttonTypo]}>Đăng nhập</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.button2, styles.buttonFlexBox]}
-          onPress={() => navigation.navigate('Register')}
+          onPress={() => navigation.navigate('Register' as never)}
         >
           <Text style={[styles.button3, styles.buttonTypo]}>Đăng kí</Text>
         </TouchableOpacity>

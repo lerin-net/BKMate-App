@@ -6,5 +6,6 @@
     "paths": {
       "@/*": ["src/*"]
     }
-  }
+  },
+  "include": ["./types/**/*.ts", "./src/**/*.ts", "./src/**/*.tsx"],
 }

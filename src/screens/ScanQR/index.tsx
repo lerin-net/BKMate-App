@@ -140,7 +140,7 @@ const ScanQR = () => {
         </Pressable>
         <TouchableOpacity
           style={[styles.smButton]}
-          onPress={() => navigation.navigate('Home')}
+          onPress={() => navigation.navigate('Home' as never)}
         >
           <Image
             style={styles.backIcon}
