@@ -18,8 +18,18 @@ const ThngTinTiKhon = () => {
     <View style={styles.thngTinTiKhon2}>
       <View style={[styles.thngTinTiKhon3, styles.thngLayout]}>
         <View style={[styles.thngTinTiKhonChild, styles.childShadowBox]} />
-        <Text style={[styles.phoneIcon, styles.phoneIconFlexBox]}></Text>
-        <Text style={[styles.mailIcon, styles.mailIconTypo]}></Text>
+        <Image
+          style={[styles.image32Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr2-phone.png")}
+        />
+        <Image
+          style={styles.image33Icon}
+          contentFit="cover"
+          source={require("@/assets/lr2-mail.png")}
+        />
+        {/* <Text style={[styles.phoneIcon, styles.phoneIconFlexBox]}></Text> */}
+        {/* <Text style={[styles.mailIcon, styles.mailIconTypo]}></Text> */}
         <Text style={[styles.text2, styles.text2Typo]}>+ 84 999999999</Text>
         <Text style={[styles.rinlerinhcmuteduvn, styles.text2Typo]}>
           rin.lerin@hcmut.edu.vn
@@ -27,12 +37,27 @@ const ThngTinTiKhon = () => {
       </View>
       <View style={[styles.chuynNgnhVKhoa1, styles.chuynLayout]}>
         <View style={[styles.chuynNgnhVKhoaChild, styles.chuynLayout]} />
-        <Text style={[styles.phoneIcon1, styles.phoneIconFlexBox]}></Text>
-        <Text style={[styles.mailIcon1, styles.mailIconTypo]}></Text>
+        <Image
+          style={[styles.image35Icon, styles.textLayout]}
+          contentFit="cover"
+          source={require("@/assets/lr2-major.png")}
+        />
+        <Image
+          style={styles.image36Icon}
+          contentFit="cover"
+          source={require("@/assets/lr2-faculty.png")}
+        />
+        {/* <Text style={[styles.phoneIcon1, styles.phoneIconFlexBox]}></Text> */}
+        {/* <Text style={[styles.mailIcon1, styles.mailIconTypo]}></Text> */}
         <Text style={[styles.khoaHcMy1, styles.khoaPosition]}>
           Khoa Học Máy Tính
         </Text>
-        <Text style={[styles.phoneIcon2, styles.timeLayout]}></Text>
+        <Image
+          style={[styles.image34Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr2-studentID.png")}
+        />
+        {/* <Text style={[styles.phoneIcon2, styles.timeLayout]}></Text> */}
         <Text style={[styles.text3, styles.khoaPosition]}>2333014</Text>
         <Text style={[styles.khoaKhoaHc2, styles.khoaPosition]}>
           Khoa Khoa học và Kỹ thuật máy tính
@@ -45,14 +70,24 @@ const ThngTinTiKhon = () => {
           colors={['#2da3dd', 'rgba(6, 113, 211, 0)']}
         />
         <Pressable
-          style={styles.menuBar1}
+          style={[styles.image37, styles.image37Position]}
           onPress={() => navigation.navigate('ThngTinCNhn')}
         >
-          <Text style={[styles.text4, styles.editTypo]}></Text>
+            <Image
+              style={styles.icon}
+              contentFit="cover"
+              source={require("@/assets/lr2-menu.png")}
+            />
+          {/* <Text style={[styles.text4, styles.editTypo]}></Text> */}
         </Pressable>
-        <Text style={[styles.edit, styles.editClr]}></Text>
+        {/* <Text style={[styles.edit, styles.editClr]}></Text> */}
+        <Image
+            style={[styles.image31Icon, styles.image37Position]}
+            contentFit="cover"
+            source={require("@/assets/lr2-edit.png")}
+          />
         <Text style={[styles.tiKhon, styles.editClr]}>Tài khoản</Text>
-        <View style={[styles.statusBar, styles.barIconFlexBox]}>
+        {/* <View style={[styles.statusBar, styles.barIconFlexBox]}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
@@ -63,7 +98,7 @@ const ThngTinTiKhon = () => {
               <Text style={styles.time1}>9:27</Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
       <View style={[styles.basicInfo, styles.basicPosition]}>
         <View style={[styles.basicInfoChild, styles.basicPosition]} />
@@ -94,7 +129,7 @@ const ThngTinTiKhon = () => {
             <Text style={[styles.thngBo, styles.thngBoTypo]}>Thông báo</Text>
           </Pressable>
           <Pressable
-            style={[styles.home, styles.phoneIconFlexBox]}
+            style={[styles.image37, styles.image37Position]}
             onPress={() => navigation.navigate('Home')}
           >
             <Image
@@ -521,7 +556,71 @@ const styles = StyleSheet.create({
     height: 932,
     overflow: 'hidden',
     backgroundColor: Color.white
-  }
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  image37: {
+    left: 34,
+    height: 29,
+    width: 18,
+  },
+  image31Icon: {
+    left: 363,
+    width: 32,
+    height: 32,
+  },
+  image37Position: {
+    top: 72,
+    position: "absolute",
+  },
+  lRinPosition: {
+    textAlign: "center",
+    top: "50%",
+    position: "absolute",
+  },
+  iconPosition: {
+    top: 21,
+    position: "absolute",
+  },
+  image32Icon: {
+    left: 45,
+    width: 25,
+    height: 26,
+  },
+  image33Icon: {
+    left: 46,
+    width: 24,
+    height: 18,
+    top: 55,
+    position: "absolute",
+  },
+  image35Icon: {
+    left: 42,
+    width: 31,
+    top: 55,
+  },
+  image36Icon: {
+    top: 89,
+    left: 49,
+    height: 25,
+    width: 18,
+    position: "absolute",
+  },
+  khoaHcMy: {
+    marginTop: -17.97,
+    width: 237,
+  },
+  image34Icon: {
+    left: 44,
+    width: 28,
+    height: 24,
+  },
+  textLayout: {
+    height: 22,
+    position: "absolute",
+  },
 });
 
 export default ThngTinTiKhon;

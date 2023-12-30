@@ -17,7 +17,7 @@ const CiTVBoMt = () => {
     <View style={styles.ciTVBoMt1}>
       <View style={[styles.menuBar, styles.menuBarPosition]}>
         <Text style={styles.ciT}>Cài đặt</Text>
-        <View style={styles.statusBar}>
+        {/* <View style={styles.statusBar}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
@@ -28,7 +28,7 @@ const CiTVBoMt = () => {
               <Text style={styles.time1}>9:27</Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
       <Pressable
         style={[styles.profilePicture, styles.menuBarPosition]}
@@ -40,8 +40,13 @@ const CiTVBoMt = () => {
           source={require('@/assets/profile-picture1.png')}
         />
       </Pressable>
-      <View style={[styles.accountSetting, styles.settingPosition]}>
-        <Text style={[styles.account, styles.otherTypo]}></Text>
+      <View style={[styles.accountSetting]}>
+        <Image
+          style={[styles.image40Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr4-Account.png")}
+        />
+        {/* <Text style={[styles.account, styles.otherTypo]}></Text> */}
         <Text style={[styles.tiKhon, styles.khcTypo]}>Tài khoản</Text>
         <Text style={[styles.chnhSaH1, styles.chNn1Typo]}>Chỉnh sửa hồ sơ</Text>
         <Text style={[styles.quynRingT1, styles.chNn1Typo]}>
@@ -52,23 +57,48 @@ const CiTVBoMt = () => {
         </Text>
       </View>
       <View style={[styles.notificationSetting, styles.settingPosition]}>
-        <Text style={[styles.account, styles.otherTypo]}>bell</Text>
+        <Image
+          style={[styles.image41Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr4-Notifi.png")}
+        />
+        {/* <Text style={[styles.account, styles.otherTypo]}>bell</Text> */}
         <View style={[styles.thngBo, styles.thngPosition]}>
           <Text style={[styles.thngBo1, styles.chNn1Typo]}>Thông báo</Text>
-          <Text style={styles.text3}></Text>
+          {/* <Text style={styles.text3}></Text> */}
+          <Image
+            style={[styles.image42Icon, styles.iconLayout]}
+            contentFit="cover"
+            source={require("@/assets/lr4-switch.png")}
+          />
         </View>
         <View style={[styles.thngBo2, styles.thngPosition]}>
           <Text style={[styles.thngBo1, styles.chNn1Typo]}>Cập nhật</Text>
-          <Text style={[styles.text4, styles.textTypo]}></Text>
+          <Image
+            style={[styles.image42Icon, styles.iconLayout]}
+            contentFit="cover"
+            source={require("@/assets/lr4-switch2.png")}
+          />
+          {/* <Text style={[styles.text4, styles.textTypo]}></Text> */}
         </View>
         <Text style={[styles.thngBo3, styles.khcTypo]}>Thông báo</Text>
       </View>
       <View style={[styles.otherSetting, styles.settingPosition]}>
-        <Text style={[styles.other, styles.otherTypo]}></Text>
+        <Image
+          style={styles.image44Icon}
+          contentFit="cover"
+          source={require("@/assets/lr4-Other.png")}
+        />
+        {/* <Text style={[styles.other, styles.otherTypo]}></Text> */}
         <Text style={[styles.khc, styles.khcTypo]}>Khác</Text>
         <View style={[styles.darkMode, styles.menuBarPosition]}>
           <Text style={[styles.chNn1, styles.chNn1Typo]}>Chế độ nền tối</Text>
-          <Text style={[styles.text5, styles.textTypo]}></Text>
+          <Image
+            style={[styles.image45Icon, styles.iconLayout]}
+            contentFit="cover"
+            source={require("@/assets/lr4-switch2.png")}
+          />
+          {/* <Text style={[styles.text5, styles.textTypo]}></Text> */}
         </View>
         <View style={[styles.language, styles.regionPosition]}>
           <Text style={[styles.ngnNg, styles.ngnNgPosition]}>Ngôn ngữ</Text>
@@ -336,7 +366,9 @@ const styles = StyleSheet.create({
   accountSetting: {
     top: 228,
     width: 183,
-    height: 144
+    height: 144,
+    left: 32,
+    position: "absolute",
   },
   thngBo1: {
     marginTop: -10,
@@ -471,7 +503,41 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: Color.white,
     width: '100%'
-  }
+  },
+  iconPosition: {
+    left: 0,
+    position: "absolute",
+  },
+  image40Icon: {
+    width: 24,
+    height: 24,
+    top: 0,
+  },
+  image41Icon: {
+    width: 23,
+    height: 24,
+    top: 0,
+  },
+  image42Icon: {
+    top: 1,
+    left: 329,
+  },
+  image44Icon: {
+    left: 1,
+    width: 30,
+    height: 24,
+    top: 0,
+    position: "absolute",
+  },
+  image45Icon: {
+    left: 330,
+    top: 0,
+  },
+  iconLayout: {
+    height: 18,
+    width: 27,
+    position: "absolute",
+  },
 });
 
 export default CiTVBoMt;
