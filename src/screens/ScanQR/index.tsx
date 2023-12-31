@@ -14,26 +14,40 @@ import BaseLayout from '@/layouts/BaseLayout';
 import { Camera, FlashMode, AutoFocus } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
-import { BarCodeScanner } from 'expo-barcode-scanner';
+import { BarCodeScanner, BarCodeScannerResult } from 'expo-barcode-scanner';
+import BarcodeMask from 'react-native-barcode-mask';
 
 const ScanQR = () => {
   const navigation = useNavigation();
   const [permission, setPermission] = useState<boolean | null>(null);
   const [flash, setFlash] = useState(FlashMode.off);
   const cameraRef = useRef(null);
-  const [scanData, setScanData] = useState('');
-  const [openModal, setOpenModal] = useState(false);
-  const [image, setImage] = useState('');
+  const [scanned, setScanned] = useState(false);
 
   const toggleFlash = () => {
     setFlash(flash === FlashMode.off ? FlashMode.torch : FlashMode.off);
   };
 
-  const handleBarCodeScanned = async ({ data }: { data: string }) => {
-    const supported = await Linking.canOpenURL(data);
-    if (supported) {
-      await Linking.openURL(data);
+  const handleBarCodeScanned = async (scanningResult: BarCodeScannerResult) => {
+    if (!scanned) {
+      // @ts-ignore
+      const { data, boundingBox: { origin } = {} } = scanningResult;
+      // @ts-ignore
+      const { x, y } = origin;
+      if (
+        x >= viewMinX &&
+        y >= viewMinY &&
+        x <= viewMinX + finderWidth / 2 &&
+        y <= viewMinY + finderHeight / 2
+      ) {
+        setScanned(true);
+        const supported = await Linking.canOpenURL(data);
+        if (supported) {
+          await Linking.openURL(data);
+        }
+      }
     }
+    setTimeout(() => setScanned(false), 3000);
   };
 
   const pickImage = async () => {
@@ -49,8 +63,6 @@ const ScanQR = () => {
 
         if (selectedAsset) {
           const uri = selectedAsset.uri;
-          setImage(uri);
-
           // Use BarCodeScanner to decode the QR code from the selected image
           const decodedBarcodeImage = await BarCodeScanner.scanFromURLAsync(
             uri,
@@ -59,17 +71,13 @@ const ScanQR = () => {
 
           if (decodedBarcodeImage && decodedBarcodeImage.length > 0) {
             const scannedData = decodedBarcodeImage[0].data;
-            setScanData(scannedData);
-
-            // You can now use the scanned data as needed
-            console.log('Scanned QR Code:', scannedData);
-
+            console.log('Detected QR Code');
             const supported = await Linking.canOpenURL(scannedData);
             if (supported) {
               await Linking.openURL(scannedData);
             }
           } else {
-            console.log('No QR code found in the selected image.');
+            alert('No QR code found in the selected image.');
           }
         }
       }
@@ -93,7 +101,7 @@ const ScanQR = () => {
         {permission ? (
           <>
             <Camera
-              style={styles.camera}
+              style={[StyleSheet.absoluteFillObject, styles.camera]}
               flashMode={flash}
               ref={cameraRef}
               onBarCodeScanned={handleBarCodeScanned}
@@ -102,39 +110,44 @@ const ScanQR = () => {
                 barCodeTypes: [BarCodeScanner.Constants.BarCodeType.qr]
               }}
             />
+            <BarcodeMask edgeColor="#62B1F6" showAnimatedLine />
           </>
         ) : (
           <Text>No camera permission</Text>
         )}
-      </View>
-      <View style={styles.buttonField}>
-        <TouchableOpacity
-          style={[styles.smButton]}
-          onPress={() => toggleFlash()}
-        >
-          <Image
-            style={styles.lightIcon}
-            contentFit="cover"
-            source={require('@/assets/live--sun.png')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={[styles.lgButton]} onPress={() => pickImage()}>
-          <Image
-            style={styles.imageIcon}
-            contentFit="cover"
-            source={require('@/assets/media--image-01.png')}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.smButton]}
-          onPress={() => navigation.navigate('Home' as never)}
-        >
-          <Image
-            style={styles.backIcon}
-            contentFit="cover"
-            source={require('@/assets/vector-7.png')}
-          />
-        </TouchableOpacity>
+        <View />
+        <View style={styles.buttonField}>
+          <TouchableOpacity
+            style={[styles.smButton]}
+            onPress={() => toggleFlash()}
+          >
+            <Image
+              style={styles.lightIcon}
+              contentFit="cover"
+              source={require('@/assets/live--sun.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.lgButton]}
+            onPress={() => pickImage()}
+          >
+            <Image
+              style={styles.imageIcon}
+              contentFit="cover"
+              source={require('@/assets/media--image-01.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.smButton]}
+            onPress={() => navigation.navigate('Home' as never)}
+          >
+            <Image
+              style={styles.backIcon}
+              contentFit="cover"
+              source={require('@/assets/vector-7.png')}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </BaseLayout>
   );
@@ -142,24 +155,23 @@ const ScanQR = () => {
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
+const finderWidth: number = 290;
+const finderHeight: number = 240;
+const viewMinX = (width - finderWidth) / 2 + 30;
+const viewMinY = (height - finderHeight) / 2 - 150;
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: '700',
     color: Color.deepskyblue_200,
-    marginVertical: height * 0.1,
+    marginTop: 50,
     alignSelf: 'center'
-  },
-  qrIcon: {
-    height: width * 0.6,
-    width: width * 0.6
   },
   buttonField: {
-    marginVertical: height * 0.1,
+    marginVertical: 50,
     flexDirection: 'row',
-    columnGap: width * 0.1,
-    alignSelf: 'center'
+    columnGap: width * 0.1
   },
   smButton: {
     justifyContent: 'center',
@@ -190,28 +202,14 @@ const styles = StyleSheet.create({
     height: 17
   },
   cameraContainer: {
-    height: width * 0.6,
-    width: width * 0.6,
-    borderRadius: 10,
-    borderWidth: 3,
-    alignSelf: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
   camera: {
     flex: 1,
-    height: '100%',
-    width: '100%'
-  },
-  modalContainer: {
-    justifyContent: 'center',
     alignItems: 'center',
-    width: width,
-    height: height * 0.2,
-    backgroundColor: 'white',
-    borderWidth: 0.3,
-    borderColor: 'gray',
-    borderRadius: 20
+    justifyContent: 'center'
   }
 });
 
