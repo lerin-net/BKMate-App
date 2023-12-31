@@ -33,7 +33,7 @@ const NavigationBar = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.navbarIconBox]}
-        onPress={() => navigation.navigate('ThngTinCNhn')}
+        onPress={() => navigation.navigate('Account')}
       >
         <Image
           style={styles.navbarIcon}

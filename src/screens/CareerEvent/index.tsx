@@ -1,16 +1,7 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList
-} from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import {
-  Color,
-  FontFamily,
-  FontSize,
-} from '@/theme/GlobalStyles';
+import { Color, FontFamily, FontSize } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
 import Card from '@/components/Card';

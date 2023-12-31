@@ -1,16 +1,6 @@
 import * as React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Dimensions
-} from 'react-native';
-import {
-  Color,
-  FontFamily,
-  FontSize,
-} from '@/theme/GlobalStyles';
+import { StyleSheet, Text, View, ScrollView, Dimensions } from 'react-native';
+import { Color, FontFamily, FontSize } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
 import Card from '@/components/Card';
