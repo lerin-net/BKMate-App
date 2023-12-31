@@ -45,12 +45,12 @@ const iconButtonList = [
   {
     image: require('@/assets/icon5.png'),
     text: 'Tài khoản',
-    link: 'ThngTinCNhn'
+    link: 'Account'
   },
   {
     image: require('@/assets/icon6.png'),
     text: 'Báo lỗi',
-    link: 'BoLiGp'
+    link: 'Review'
   }
 ];
 

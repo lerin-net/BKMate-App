@@ -16,22 +16,21 @@ import StudyBuilding from '@/screens/Campus/StudyBuilding';
 import FeatureBuilding from '@/screens/Campus/FeatureBuilding';
 import Location from '@/screens/Campus/Location';
 import LocationDetail from '@/screens/Campus/LocationDetail';
+import DirectRoute from '@/screens/Campus/DirectRoute';
 import Career from '@/screens/CareerEvent';
 import CareerDetail from '@/screens/CareerEvent/CareerDetail';
 import ScanQR from '@/screens/ScanQR';
 import Club from '@/screens/Club';
 import ClubDetail from '@/screens/Club/ClubDetail';
 import EventDetail from '@/screens/Club/EventDetail';
-
-import TrungTmHTr from '@/screens/TrungTmHTr';
-import CiTVBoMt from '@/screens/CiTVBoMt';
-import SKinLu from '@/screens/SKinLu';
-import ThngTinTiKhon from '@/screens/ThngTinTiKhon';
-import DirectRoute from '@/screens/Campus/DirectRoute';
-import CmNBoLiGp from '@/screens/CmNBoLiGp';
-import NiDungBoLiGp from '@/screens/NiDungBoLiGp';
-import BoLiGp from '@/screens/BoLiGp';
-import ThngTinCNhn from '@/screens/ThngTinCNhn';
+import Account from '@/screens/Account';
+import AccountInfo from '@/screens/Account/AccountInfo';
+import Center from '@/screens/Account/Center';
+import Setting from '@/screens/Account/Setting';
+import MyEvent from '@/screens/Account/MyEvent';
+import Review from '@/screens/Review';
+import Feedback from '@/screens/Review/Feedback';
+import Thankyou from '@/screens/Review/Thankyou';
 
 import { useFonts } from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -110,13 +109,13 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="TrungTmHTr"
-                component={TrungTmHTr}
+                name="Center"
+                component={Center}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="CiTVBoMt"
-                component={CiTVBoMt}
+                name="Setting"
+                component={Setting}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -125,13 +124,13 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="SKinLu"
-                component={SKinLu}
+                name="MyEvent"
+                component={MyEvent}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ThngTinTiKhon"
-                component={ThngTinTiKhon}
+                name="AccountInfo"
+                component={AccountInfo}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -200,18 +199,18 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="CmNBoLiGp"
-                component={CmNBoLiGp}
+                name="Thankyou"
+                component={Thankyou}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="NiDungBoLiGp"
-                component={NiDungBoLiGp}
+                name="Feedback"
+                component={Feedback}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="BoLiGp"
-                component={BoLiGp}
+                name="Review"
+                component={Review}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -220,8 +219,8 @@ const App = () => {
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="ThngTinCNhn"
-                component={ThngTinCNhn}
+                name="Account"
+                component={Account}
                 options={{ headerShown: false }}
               />
               <Stack.Screen

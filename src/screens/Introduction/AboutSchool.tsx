@@ -1,13 +1,8 @@
 import * as React from 'react';
-import { Text, StyleSheet, View,  ScrollView } from 'react-native';
+import { Text, StyleSheet, View, ScrollView } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
-import {
-  Padding,
-  Border,
-  FontFamily,
-  FontSize
-} from '@/theme/GlobalStyles';
+import { Padding, Border, FontFamily, FontSize } from '@/theme/GlobalStyles';
 import GoBackButton from '@/components/GoBackButton';
 import Card from '@/components/Card';
 import BaseLayout from '@/layouts/BaseLayout';

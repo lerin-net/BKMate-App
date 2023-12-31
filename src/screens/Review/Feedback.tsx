@@ -1,6 +1,15 @@
 import * as React from 'react';
 import { Image } from 'expo-image';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  TouchableOpacity,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform
+} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import {
@@ -11,131 +20,145 @@ import {
   FontFamily
 } from '@/theme/GlobalStyles';
 
-const NiDungBoLiGp = () => {
+const Feedback = () => {
   const navigation = useNavigation();
-
+  const [value, setValue] = React.useState('');
   return (
-    <LinearGradient
-      style={styles.niDungBoLiGp1}
-      locations={[0, 1]}
-      colors={['#a3f2fc', '#2ca2dc']}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'android' ? 'height' : 'padding'}
+      style={{ flex: 1 }}
     >
-      <View style={styles.navBar}>
-        <Pressable
-          style={styles.homeFlexBox}
-          onPress={() => navigation.navigate('Announce')}
-        >
-          <Image
-            style={styles.vectorIcon1}
-            contentFit="cover"
-            source={require('@/assets/vector.png')}
-          />
-          <Text style={styles.thngBo}>Thông báo</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.home, styles.homeFlexBox]}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Image
-            style={styles.vectorIcon1}
-            contentFit="cover"
-            source={require('@/assets/iconlyboldhome.png')}
-          />
-          <Text style={styles.thngBo}>Trang chủ</Text>
-        </Pressable>
-        <Pressable
-          style={[styles.home, styles.homeFlexBox]}
-          onPress={() => navigation.navigate('ThngTinCNhn')}
-        >
-          <Image
-            style={styles.vectorIcon1}
-            contentFit="cover"
-            source={require('@/assets/iconlylightprofile.png')}
-          />
-          <Text style={styles.thngBo}>Tài khoản</Text>
-        </Pressable>
-      </View>
-      {/* <View style={styles.statusBar}>
-        <View style={styles.statusBar1}>
-          <Image
-            style={styles.uiIcon}
-            contentFit="cover"
-            source={require('@/assets/ui1.png')}
-          />
-          <View style={styles.time}>
-            <Text style={styles.time1}>9:27</Text>
-          </View>
-        </View>
-      </View> */}
-      <Text style={[styles.xinLiVContainer, styles.chnCh1Layout]}>
-        <Text style={styles.xinLiV1}>{`Xin lỗi vì bạn đã có 
-trải nghiệm không tốt. 
-`}</Text>
-        <Text
-          style={styles.cIuG}
-        >{`Có điều gì mà chúng tôi nên cải thiện? `}</Text>
-      </Text>
-      <Text style={[styles.chnCh1, styles.chnCh1Typo]}>Chọn chủ đề</Text>
-      <View style={[styles.paragraphBox, styles.paragraphLayout]}>
-        <View style={[styles.paragraphBoxChild, styles.paragraphLayout]} />
-        <Text
-          style={[styles.hyChoChng1, styles.chnCh1Typo]}
-        >{`Hãy cho chúng tôi biết 
-trải nghiệm và suy nghĩ của bạn...`}</Text>
-      </View>
-      <Pressable
-        style={styles.send}
-        onPress={() => navigation.navigate('CmNBoLiGp')}
+      <LinearGradient
+        style={styles.container}
+        locations={[0, 1]}
+        colors={['#a5f3fc', '#2aa1dc']}
       >
-        <Text style={[styles.button, styles.buttonTypo]}>Gửi</Text>
-      </Pressable>
-      <View style={[styles.niDung, styles.dchVLayout]}>
-        <Text style={[styles.button1, styles.buttonTypo]}>Nội dung</Text>
-      </View>
-      <View style={[styles.tnhNng, styles.dchVLayout]}>
-        <Text style={[styles.button2, styles.text1Clr]}>Tính năng</Text>
-      </View>
-      <View style={[styles.tnhNng1, styles.tnhFlexBox]}>
-        <Text style={[styles.button2, styles.text1Clr]}>Trung tâm hỗ trợ</Text>
-      </View>
-      <View style={[styles.tnhNng2, styles.tnhFlexBox]}>
-        <Text style={[styles.button2, styles.text1Clr]}>Khác</Text>
-      </View>
-      <View style={[styles.dchV, styles.dchVLayout]}>
-        <Text style={[styles.button2, styles.text1Clr]}>Dịch vụ</Text>
-      </View>
-      <Pressable 
-        style={[styles.image64, styles.timeLayout]} 
-        onPress={() => navigation.goBack()}>
-        <Image
-          style={styles.icon}
-          contentFit="cover"
-          source={require("@/assets/lr6-whiteBack.png")}
+        <Text style={styles.xinLiV1}>
+          Xin lỗi vì bạn đã có trải nghiệm không tốt.
+        </Text>
+        <Text
+          style={{
+            fontFamily: FontFamily.robotoFlex,
+            color: 'white',
+            fontSize: 22,
+            textAlign: 'center'
+          }}
+        >
+          Có điều gì mà chúng tôi nên cải thiện?
+        </Text>
+        <Text
+          style={{
+            color: 'white',
+            marginTop: 50,
+            marginBottom: 20,
+            fontSize: 18
+          }}
+        >
+          Chọn chủ đề
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 10
+          }}
+        >
+          <TouchableOpacity style={[styles.subjectButton]}>
+            <Text style={[styles.buttonText]}>Tính năng</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.subjectButton, { backgroundColor: 'white' }]}
+          >
+            <Text style={[styles.buttonText, { color: 'black' }]}>
+              Nội dung
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.subjectButton]}>
+            <Text style={[styles.buttonText]}>Dịch vụ</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.subjectButton]}>
+            <Text style={[styles.buttonText]}>Trung tâm hỗ trợ</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.subjectButton]}>
+            <Text style={[styles.buttonText]}>Khác</Text>
+          </TouchableOpacity>
+        </View>
+        <TextInput
+          multiline={true}
+          numberOfLines={9}
+          style={{
+            backgroundColor: Color.gray_500,
+            borderRadius: 15,
+            marginVertical: 50,
+            padding: 5
+          }}
+          placeholder="Hãy cho chúng tôi biết trải nghiệm và suy nghĩ của bạn..."
+          value={value}
+          onChangeText={(val) => setValue(val)}
         />
-        {/* <Text style={[styles.text1, styles.text1Clr]}></Text> */}
-      </Pressable>
-    </LinearGradient>
+        <TouchableOpacity
+          style={{
+            backgroundColor: 'white',
+            width: '100%',
+            padding: 15,
+            borderRadius: 10
+          }}
+          onPress={() => {
+            navigation.navigate('Thankyou');
+          }}
+        >
+          <Text
+            style={{ textAlign: 'center', fontWeight: '700', fontSize: 18 }}
+          >
+            Gửi
+          </Text>
+        </TouchableOpacity>
+      </LinearGradient>
+    </KeyboardAvoidingView>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20
+  },
+  subjectButton: {
+    backgroundColor: Color.gray_500,
+    borderRadius: Border.br_26xl,
+    paddingHorizontal: Padding.p_xl,
+    paddingVertical: Padding.p_mini,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  buttonText: {
+    color: Color.white,
+    textAlign: 'center',
+    fontWeight: '500',
+    fontSize: FontSize.size_base
+  },
   homeFlexBox: {
     width: 67,
     justifyContent: 'center',
     alignItems: 'center'
   },
   icon: {
-    height: "100%",
-    width: "100%",
+    height: '100%',
+    width: '100%'
   },
   image64: {
     left: 369,
     top: 72,
-    width: 24,
+    width: 24
   },
   timeLayout: {
     height: 23,
-    position: "absolute",
+    position: 'absolute'
   },
   chnCh1Layout: {
     width: 303,
@@ -159,33 +182,23 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   dchVLayout: {
-    height: 55,
-    width: 100,
-    top: 366,
     borderRadius: Border.br_26xl,
     paddingHorizontal: Padding.p_xl,
     paddingVertical: Padding.p_mini,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
-  text1Clr: {
-    color: Color.white,
-    textAlign: 'center'
-  },
+
   tnhFlexBox: {
-    height: 51,
     width: 120,
-    top: 434,
     borderRadius: Border.br_26xl,
     paddingHorizontal: Padding.p_xl,
     backgroundColor: Color.gray_500,
     paddingVertical: Padding.p_mini,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
   vectorIcon1: {
     width: 24,
@@ -260,7 +273,10 @@ const styles = StyleSheet.create({
   },
   xinLiV1: {
     fontFamily: FontFamily.robotoFlex,
-    fontWeight: '700'
+    fontWeight: '700',
+    color: 'white',
+    fontSize: 22,
+    textAlign: 'center'
   },
   cIuG: {
     fontWeight: '300',
@@ -338,10 +354,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_base,
     fontFamily: FontFamily.robotoFlex
   },
-  tnhNng: {
-    left: 61,
-    backgroundColor: Color.gray_500
-  },
+
   tnhNng1: {
     left: 97,
     width: 150
@@ -351,18 +364,13 @@ const styles = StyleSheet.create({
     width: 62
   },
   dchV: {
-    top: 369,
-    left: 293,
-    width: 120,
-    height: 52,
     borderRadius: Border.br_26xl,
     paddingHorizontal: Padding.p_xl,
     backgroundColor: Color.gray_500,
     paddingVertical: Padding.p_mini,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-    position: "absolute",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row'
   },
   text1: {
     fontSize: FontSize.size_17xl,
@@ -379,10 +387,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     flex: 1,
     height: 932,
-    backgroundColor: "transparent",
-    overflow: "hidden",
-    width: "100%",
+    backgroundColor: 'transparent',
+    overflow: 'hidden',
+    width: '100%'
   }
 });
 
-export default NiDungBoLiGp;
+export default Feedback;

@@ -7,5 +7,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["./types/**/*.ts", "./src/**/*.ts", "./src/**/*.tsx"],
+  "include": ["./types/**/*.ts", "./src/**/*.ts", "./src/**/*.tsx"]
 }

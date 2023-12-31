@@ -10,12 +10,7 @@ import {
 } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
-import {
-  Color,
-  FontFamily,
-  FontSize,
-  Border,
-} from '@/theme/GlobalStyles';
+import { Color, FontFamily, FontSize, Border } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
 

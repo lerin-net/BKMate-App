@@ -7,7 +7,9 @@ import {
   ScrollView,
   Dimensions,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  KeyboardAvoidingView,
+  Platform
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
@@ -35,57 +37,62 @@ const Campus = () => {
 
   return (
     <BaseLayout>
-      <LinearGradient
-        style={styles.header}
-        locations={[0.03, 0.61]}
-        colors={['#bae6fd', '#f0f9ff']}
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'android' ? 'height' : 'padding'}
+        style={{ flex: 1 }}
       >
-        <GoBackButton toPage="Trang chủ" />
+        <LinearGradient
+          style={styles.header}
+          locations={[0.03, 0.61]}
+          colors={['#bae6fd', '#f0f9ff']}
+        >
+          <GoBackButton toPage="Trang chủ" />
 
-        <View style={styles.titleFiled}>
-          <Text style={styles.titleText}>Khuôn viên</Text>
-          <Image
-            style={styles.mapIcon}
-            contentFit="contain"
-            source={require('@/assets/vector1.png')}
-          />
-        </View>
-        <View style={[styles.inputBox]}>
-          <Image
-            style={styles.searchIcon}
-            contentFit="cover"
-            source={require('@/assets/search.png')}
-          />
-          <TextInput
-            style={{ width: '100%' }}
-            placeholder="Tìm kiếm"
-            value={inputSearch}
-            onChangeText={(val) => setInputSearch(val)}
-          />
-        </View>
-        <TouchableOpacity activeOpacity={0.7} style={[styles.searchButton]}>
-          <Text style={[styles.searchText]}>Tìm kiếm</Text>
-          <Image
-            style={styles.arrowRight}
-            contentFit="cover"
-            source={require('@/assets/arrow--right.png')}
-          />
-        </TouchableOpacity>
-      </LinearGradient>
-
-      <ScrollView>
-        <View style={styles.content}>
-          <Text style={styles.areaText}>Khu vực</Text>
-          {buildingsList.map((building, index) => (
-            <Card
-              key={index}
-              name={building.name}
-              image={building.image}
-              link={building.link}
+          <View style={styles.titleFiled}>
+            <Text style={styles.titleText}>Khuôn viên</Text>
+            <Image
+              style={styles.mapIcon}
+              contentFit="contain"
+              source={require('@/assets/vector1.png')}
             />
-          ))}
-        </View>
-      </ScrollView>
+          </View>
+          <View style={[styles.inputBox]}>
+            <Image
+              style={styles.searchIcon}
+              contentFit="cover"
+              source={require('@/assets/search.png')}
+            />
+            <TextInput
+              style={{ width: '100%' }}
+              placeholder="Tìm kiếm"
+              value={inputSearch}
+              onChangeText={(val) => setInputSearch(val)}
+            />
+          </View>
+          <TouchableOpacity activeOpacity={0.7} style={[styles.searchButton]}>
+            <Text style={[styles.searchText]}>Tìm kiếm</Text>
+            <Image
+              style={styles.arrowRight}
+              contentFit="cover"
+              source={require('@/assets/arrow--right.png')}
+            />
+          </TouchableOpacity>
+        </LinearGradient>
+
+        <ScrollView>
+          <View style={styles.content}>
+            <Text style={styles.areaText}>Khu vực</Text>
+            {buildingsList.map((building, index) => (
+              <Card
+                key={index}
+                name={building.name}
+                image={building.image}
+                link={building.link}
+              />
+            ))}
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
     </BaseLayout>
   );
 };
