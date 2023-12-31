@@ -74,7 +74,12 @@ góp ý hay báo cáo lỗi không? `}</Text>
         onPress={() => navigation.navigate('CmNBoLiGp')}
       >
         <Text style={[styles.miThN1, styles.miThN1Layout]}>Mọi thứ ổn!</Text>
-        <Text style={[styles.everythingGood, styles.notSastifiedTypo]}></Text>
+        <Image
+          style={[styles.image59Icon, styles.iconLayout]}
+          contentFit="cover"
+          source={require("@/assets/lr6-good.png")}
+        />
+        {/* <Text style={[styles.everythingGood, styles.notSastifiedTypo]}></Text> */}
       </Pressable>
       <Pressable
         style={[styles.notSatisfied, styles.tiKhngHi1Layout]}
@@ -83,7 +88,12 @@ góp ý hay báo cáo lỗi không? `}</Text>
         <Text style={[styles.tiKhngHi1, styles.tiKhngHi1Layout]}>
           Tôi không hài lòng lắm!
         </Text>
-        <Text style={[styles.notSastified, styles.notSastifiedTypo]}></Text>
+        <Image
+          style={[styles.image60Icon, styles.iconLayout]}
+          contentFit="cover"
+          source={require("@/assets/lr6-notsastified.png")}
+        />
+        {/* <Text style={[styles.notSastified, styles.notSastifiedTypo]}></Text> */}
       </Pressable>
       <Pressable
         style={styles.hyHiTiContainer}
@@ -93,9 +103,17 @@ góp ý hay báo cáo lỗi không? `}</Text>
           Hãy hỏi tôi vào lúc khác!
         </Text>
       </Pressable>
-      <Pressable style={styles.pressable} onPress={() => navigation.goBack()}>
-        <Text style={styles.text1}></Text>
+      <Pressable 
+        style={[styles.image61, styles.timeLayout]} 
+        onPress={() => navigation.goBack()}>
+        {/* <Text style={styles.text1}></Text> */}
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("@/assets/lr6-whiteBack.png")}
+        />
       </Pressable>
+      
     </LinearGradient>
   );
 };
@@ -279,7 +297,33 @@ const styles = StyleSheet.create({
     height: 932,
     backgroundColor: 'transparent',
     overflow: 'hidden'
-  }
+  },
+  image59Icon: {
+    left: 57,
+  },
+  image60Icon: {
+    left: 60,
+  },
+  image61: {
+    left: 369,
+    top: 72,
+    width: 24,
+  },
+  iconLayout: {
+    height: 64,
+    width: 64,
+    top: 0,
+    position: "absolute",
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  timeLayout: {
+    height: 23,
+    position: "absolute",
+  },
+
 });
 
 export default BoLiGp;

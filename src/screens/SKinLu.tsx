@@ -78,16 +78,26 @@ const SKinLu = () => {
       </View>
       <View style={[styles.menuBar, styles.menuBarPosition]}>
         <Pressable
-          style={[styles.menuBar1, styles.editPosition]}
+          style={[styles.image39, styles.image39Position]}
           onPress={() => navigation.navigate('ThngTinCNhn')}
         >
-          <Text style={[styles.text, styles.textTypo]}></Text>
+          <Image
+            style={styles.icon}
+            contentFit="cover"
+            source={require("@/assets/lr3-back.png")}
+          />
+          {/* <Text style={[styles.text, styles.textTypo]}></Text> */}
         </Pressable>
-        <Text style={[styles.edit, styles.textTypo]}></Text>
+        <Image
+          style={[styles.image38Icon, styles.image39Position]}
+          contentFit="cover"
+          source={require("@/assets/lr3-search.png")}
+        />
+        {/* <Text style={[styles.edit, styles.textTypo]}></Text> */}
         <Text style={[styles.sKinCa1, styles.time1Position]}>
           Sự kiện của tôi
         </Text>
-        <View style={styles.statusBar}>
+        {/* <View style={styles.statusBar}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
@@ -98,7 +108,7 @@ const SKinLu = () => {
               <Text style={[styles.time1, styles.time1Position]}>9:27</Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
       <View style={[styles.upcomingEvents, styles.eventsFlexBox]}>
         <Text style={[styles.button, styles.buttonTypo]}>Sự kiện sắp tới</Text>
@@ -417,7 +427,25 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: Color.white,
     borderRadius: Border.br_31xl
-  }
+  },
+  image39Position: {
+    top: 73,
+    position: "absolute",
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  image39: {
+    left: 42,
+    width: 18,
+    height: 29,
+  },
+  image38Icon: {
+    left: 364,
+    width: 34,
+    height: 34,
+  },
 });
 
 export default SKinLu;

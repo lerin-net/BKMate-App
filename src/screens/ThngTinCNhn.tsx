@@ -10,6 +10,8 @@ import {
   Border,
   Padding
 } from '@/theme/GlobalStyles';
+import BaseLayout from '@/layouts/BaseLayout';
+
 
 const ThngTinCNhn = () => {
   const navigation = useNavigation();
@@ -21,42 +23,67 @@ const ThngTinCNhn = () => {
         onPress={() => navigation.navigate('BoLiGp')}
       >
         <View style={[styles.gpBoLiChild, styles.childShadowBox]} />
-        <Text style={[styles.text7, styles.textTypo2]}></Text>
+        {/* <Text style={[styles.text7, styles.textTypo2]}></Text> */}
         <Text style={[styles.gp1, styles.gp1Typo]}>{`Góp ý & báo lỗi`}</Text>
+        <Image
+          style={styles.feedbacksIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-feedbacks.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.gpBoLi3, styles.gpBoLi2Layout]}
         onPress={() => navigation.navigate('Welcome')}
       >
         <View style={[styles.gpBoLiItem, styles.childShadowBox]} />
-        <Text style={[styles.text8, styles.textTypo2]}></Text>
+        {/* <Text style={[styles.text8, styles.textTypo2]}></Text> */}
         <Text style={[styles.gp1, styles.gp1Typo]}>Đăng xuất</Text>
+        <Image
+          style={styles.feedbacksIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-logOut.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.trungTmHTr1, styles.gpBoLi2Layout]}
         onPress={() => navigation.navigate('TrungTmHTr')}
       >
         <View style={[styles.trungTmHTrChild, styles.childShadowBox]} />
-        <Text style={[styles.text9, styles.textTypo2]}></Text>
+        {/* <Text style={[styles.text9, styles.textTypo2]}></Text> */}
         <Text style={[styles.trungTmH1, styles.gp1Typo]}>Trung tâm hỗ trợ</Text>
+        <Image
+          style={styles.supportCenterIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-supportCenter.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.ciTBoMt1, styles.ciTBoMt1Position]}
         onPress={() => navigation.navigate('CiTVBoMt')}
       >
         <View style={[styles.ciTBoMtChild, styles.childShadowBox]} />
-        <Text style={[styles.text10, styles.textTypo1]}></Text>
+        {/* <Text style={[styles.text10, styles.textTypo1]}></Text> */}
         <Text style={[styles.ciT1, styles.gp1Typo]}>{`Cài đặt & bảo mật`}</Text>
+        <Image
+          style={styles.settingIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-setting.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.cHiNghNghip1, styles.ciTBoMt1Position]}
         onPress={() => navigation.navigate('Career')}
       >
         <View style={[styles.cHiNghNghipChild, styles.childShadowBox]} />
-        <Text style={[styles.text11, styles.textTypo1]}></Text>
+        {/* <Text style={[styles.text11, styles.textTypo1]}></Text> */}
         <Text style={[styles.cHiNgh1, styles.cHiNgh1Layout]}>
           Cơ hội nghề nghiệp
         </Text>
+        <Image
+          style={styles.settingIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-careers.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.sKinLu1, styles.sKinLu1Position]}
@@ -64,17 +91,27 @@ const ThngTinCNhn = () => {
       >
         <View style={[styles.sKinLuChild, styles.childShadowBox]} />
         <Text style={[styles.sKin1, styles.sKin1Position]}>Sự kiện đã lưu</Text>
-        <Text style={[styles.text12, styles.textTypo2]}></Text>
+        {/* <Text style={[styles.text12, styles.textTypo2]}></Text> */}
+        <Image
+          style={styles.settingIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-savedEvents.png')}
+        />
       </Pressable>
       <Pressable
         style={[styles.thngTinTiKhon1, styles.sKinLu1Position]}
         onPress={() => navigation.navigate('ThngTinTiKhon')}
       >
         <View style={[styles.thngTinTiKhonChild, styles.childShadowBox]} />
-        <Text style={[styles.text13, styles.barFlexBox]}></Text>
+        {/* <Text style={[styles.text13, styles.barFlexBox]}></Text> */}
         <Text style={[styles.thngTinTi1, styles.sKin1Position]}>
           Thông tin tài khoản
         </Text>
+        <Image
+          style={styles.supportCenterIcon}
+          contentFit="cover"
+          source={require('@/assets/lr1-profile.png')}
+        />
       </Pressable>
       <View style={styles.menuPosition}>
         <LinearGradient
@@ -82,19 +119,39 @@ const ThngTinCNhn = () => {
           locations={[0.24, 1]}
           colors={['#2ca3dc', 'rgba(6, 113, 211, 0)']}
         />
-        <Pressable
+        {/* <Pressable
           style={[styles.menuBar1, styles.notifiPosition]}
           onPress={() => navigation.navigate('Home')}
         >
           <Text style={[styles.text14, styles.textTypo]}></Text>
-        </Pressable>
+        </Pressable> */}
         <Pressable
-          style={[styles.notifi, styles.notifiPosition]}
+          style={[styles.lr1Menubar1Icon, styles.lRinLayout]}
+          onPress={() => navigation.navigate('Home')}
+        >
+          <Image
+          style={[styles.icon]}
+          contentFit="cover"
+          source={require('@/assets/lr1-menuBar.png')}
+          />
+        </Pressable>
+        {/* <Image
+          style={[styles.lr1Menubar1Icon, styles.lRinLayout]}
+          contentFit="cover"
+          source={require('@/assets/lr1-menuBar.png')}
+        /> */}
+        <Pressable
+          style={[styles.lr1Notifi1Icon, styles.lr1IconLayout]}
           onPress={() => navigation.navigate('Announce')}
         >
-          <Text style={[styles.text15, styles.textTypo]}></Text>
+          {/* <Text style={[styles.text15, styles.textTypo]}></Text> */}
+        <Image
+          style={[styles.icon]}
+          contentFit="cover"
+          source={require('@/assets/lr1-notifi.png')}
+        />
         </Pressable>
-        <View style={[styles.statusBar, styles.barFlexBox]}>
+        {/* <View style={[styles.statusBar, styles.barFlexBox]}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
@@ -105,7 +162,7 @@ const ThngTinCNhn = () => {
               <Text style={styles.time1}>9:27</Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
       <Pressable
         style={[styles.basicInfo, styles.basicPosition]}
@@ -668,6 +725,56 @@ const styles = StyleSheet.create({
     height: 932,
     overflow: 'hidden',
     backgroundColor: Color.white
+  }, 
+  feedbacksIcon: {
+    left: 71,
+    width: 31,
+    height: 24,
+    top: 24,
+    position: "absolute",
+  },
+  supportCenterIcon: {
+    left: 71,
+    width: 24,
+    height: 31,
+    top: 24,
+    position: "absolute",
+  },
+  settingIcon: {
+    left: 71,
+    width: 26,
+    height: 26,
+    top: 24,
+    position: "absolute",
+  },
+  menuBarIcon: {
+    left: 71,
+    width: 24,
+    height: 31,
+    top: 24,
+    position: "absolute",
+  },
+  lRinLayout: {
+    height: 27,
+    position: "absolute",
+  },
+  lr1Menubar1Icon: {
+    width: 32,
+    top: 75,
+    left: 34,
+  },
+  lr1IconLayout: {
+    width: 32,
+    top: 75,
+  },
+  lr1Notifi1Icon: {
+    left: 365,
+    height: 37,
+    position: "absolute",
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
   }
 });
 

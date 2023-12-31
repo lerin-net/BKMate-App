@@ -17,7 +17,7 @@ const TrungTmHTr = () => {
     <View style={styles.trungTmHTr2}>
       <View style={[styles.menuBar, styles.menuBarPosition]}>
         <Text style={styles.trungTmH1}>Trung Tâm Hỗ Trợ</Text>
-        <View style={styles.statusBar}>
+        {/* <View style={styles.statusBar}>
           <View style={styles.statusBar1}>
             <Image
               style={styles.uiIcon}
@@ -28,7 +28,7 @@ const TrungTmHTr = () => {
               <Text style={styles.time1}>9:27</Text>
             </View>
           </View>
-        </View>
+        </View> */}
       </View>
       <Pressable
         style={[styles.profilePicture, styles.menuBarPosition]}
@@ -42,41 +42,78 @@ const TrungTmHTr = () => {
       </Pressable>
       <View style={[styles.search, styles.searchLayout]}>
         <Pressable
-          style={styles.menuBar1}
+          style={styles.image46}
           onPress={() => navigation.navigate('ThngTinCNhn')}
         >
-          <Text style={styles.editTypo}></Text>
+          {/* <Text style={styles.editTypo}></Text> */}
+          <Image
+            style={styles.iconLayout1}
+            contentFit="cover"
+            source={require("@/assets/lr5-menu.png")}
+          />
         </Pressable>
-        <Text style={[styles.edit, styles.editTypo]}></Text>
+        <Image
+          style={styles.image47Icon}
+          contentFit="cover"
+          source={require("@/assets/lr5-search1.png")}
+        />
+        {/* <Text style={[styles.edit, styles.editTypo]}></Text> */}
         <View style={[styles.button, styles.buttonFlexBox]}>
-          <Text style={styles.button1}></Text>
+          <Text style={styles.button1}>
+          </Text>
+          
         </View>
         <Text style={styles.tmKim}>Tìm kiếm</Text>
+        <Image
+          style={[styles.image48Icon, styles.iconLayout]}
+          contentFit="cover"
+          source={require("@/assets/lr5-search2.png")}
+        />
       </View>
       <View style={[styles.gpBoLi3, styles.gpBoLi3Layout]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text11, styles.textTypo3]}></Text>
+        <Image
+          style={[styles.image56Icon, styles.iconPosition3]}
+          contentFit="cover"
+          source={require("@/assets/lr5-3D.png")}
+        />
+        {/* <Text style={[styles.text11, styles.textTypo3]}></Text> */}
         <Text style={[styles.thamQuanO1, styles.tmHiuV1Typo]}>
           Tham quan ảo 3D/360
         </Text>
       </View>
       <View style={[styles.gpBoLi4, styles.gpBoLi4Position]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text12, styles.textTypo2]}></Text>
+        <Image
+          style={styles.image57Icon}
+          contentFit="cover"
+          source={require("@/assets/lr5-school.png")}
+        />
+        {/* <Text style={[styles.text12, styles.textTypo2]}></Text> */}
         <Text style={[styles.tmHiuV1, styles.tmHiuV1Typo]}>
           Tìm hiểu về trường
         </Text>
       </View>
       <View style={[styles.gpBoLi5, styles.gpBoLi4Position]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text13, styles.textTypo3]}></Text>
+        <Image
+          style={[styles.image58Icon, styles.iconPosition3]}
+          contentFit="cover"
+          source={require("@/assets/lr5-faculty.png")}
+        />
+        {/* <Text style={[styles.text13, styles.textTypo3]}></Text> */}
         <Text style={[styles.ngnhVChuyn1, styles.tmHiuV1Typo]}>
           Ngành và chuyên ngành
         </Text>
       </View>
       <View style={[styles.trungTmHTr3, styles.gpBoLi3Layout]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text14, styles.textTypo1]}></Text>
+        <Image
+          style={[styles.image55Icon, styles.iconPosition2]}
+          contentFit="cover"
+          source={require("@/assets/lr5-RnD.png")}
+        />
+        {/* <Text style={[styles.text14, styles.textTypo1]}></Text> */}
         <Text
           style={[styles.nghinCu1, styles.tmHiuV1Typo]}
         >{`Nghiên cứu & Hợp tác`}</Text>
@@ -86,12 +123,22 @@ const TrungTmHTr = () => {
         onPress={() => navigation.navigate('CiTVBoMt')}
       >
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text15, styles.textTypo1]}></Text>
+        <Image
+          style={[styles.image54Icon, styles.iconPosition2]}
+          contentFit="cover"
+          source={require("@/assets/lr5-ktx.png")}
+        />
+        {/* <Text style={[styles.text15, styles.textTypo1]}></Text> */}
         <Text style={[styles.kTcX1, styles.mybkPosition]}>Ký túc xá</Text>
       </Pressable>
       <View style={[styles.cHiNghNghip1, styles.ciTBoMt1Position]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={[styles.text16, styles.textTypo2]}></Text>
+        <Image
+          style={[styles.image53Icon, styles.iconPosition1]}
+          contentFit="cover"
+          source={require("@/assets/lr5-myBK.png")}
+        />
+        {/* <Text style={[styles.text16, styles.textTypo2]}></Text> */}
         <Text style={[styles.mybk, styles.mybkLayout]}>MyBK</Text>
       </View>
       <View style={[styles.sKinLu2, styles.sKinLu2Position]}>
@@ -99,11 +146,22 @@ const TrungTmHTr = () => {
         <Text style={[styles.bnTinSinh1, styles.phngOTo1Position]}>
           Bản tin Sinh viên
         </Text>
-        <Text style={[styles.text17, styles.textTypo]}></Text>
+        <Image
+          style={[styles.image52Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr5-news.png")}
+        />
+        {/* <Text style={[styles.text17, styles.textTypo]}></Text> */}
       </View>
       <View style={[styles.thngTinTiKhon2, styles.sKinLu2Position]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={styles.text18}></Text>
+        <Image
+          style={[styles.image51Icon, styles.iconPosition1]}
+          contentFit="cover"
+          source={require("@/assets/lr5-edu.png")}
+        />
+
+        {/* <Text style={styles.text18}></Text> */}
         <Text style={[styles.phngOTo1, styles.phngOTo1Position]}>
           Phòng Đào tạo
         </Text>
@@ -113,11 +171,21 @@ const TrungTmHTr = () => {
         <Text style={[styles.cngTcTuyn1, styles.phngOTo1Position]}>
           Công tác tuyển sinh
         </Text>
-        <Text style={[styles.text19, styles.textTypo]}></Text>
+        <Image
+          style={[styles.image50Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr5-recruiting.png")}
+        />
+        {/* <Text style={[styles.text19, styles.textTypo]}></Text> */}
       </View>
       <View style={[styles.thngTinTiKhon3, styles.sKinLu3Position]}>
         <View style={styles.itemChildShadowBox} />
-        <Text style={styles.text18}></Text>
+        <Image
+          style={[styles.image49Icon, styles.iconPosition]}
+          contentFit="cover"
+          source={require("@/assets/lr5-account.png")}
+        />
+        {/* <Text style={styles.text18}></Text> */}
         <Text style={[styles.phngOTo1, styles.phngOTo1Position]}>
           Tài khoản
         </Text>
@@ -607,7 +675,265 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     backgroundColor: Color.white,
     width: '100%'
-  }
+  },
+  buttonSpaceBlock: {
+    paddingVertical: Padding.p_mini,
+    left: 0,
+  },
+  iconLayout1: {
+    height: "100%",
+    width: "100%",
+  },
+  iconLayout: {
+    height: 22,
+    position: "absolute",
+  },
+  gpBoLiLayout: {
+    height: 90,
+    width: 165,
+    top: 618,
+    position: "absolute",
+  },
+  iconPosition3: {
+    top: 13,
+    position: "absolute",
+  },
+  tmHiuVTypo: {
+    height: 20,
+    display: "flex",
+    fontSize: FontSize.size_base,
+    fontWeight: "300",
+    textAlign: "center",
+    color: Color.colorBlack,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: FontFamily.robotoFlex,
+    left: "50%",
+    top: "50%",
+    position: "absolute",
+  },
+  gpBoLi1Position: {
+    top: 734,
+    height: 90,
+    width: 165,
+    position: "absolute",
+  },
+  iconPosition2: {
+    left: 66,
+    width: 30,
+  },
+  ciTBoMtPosition: {
+    top: 502,
+    height: 90,
+    width: 165,
+    position: "absolute",
+  },
+  kTcXPosition: {
+    marginTop: 12,
+    height: 20,
+    display: "flex",
+    fontSize: FontSize.size_base,
+    fontWeight: "300",
+    textAlign: "center",
+    color: Color.colorBlack,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: FontFamily.robotoFlex,
+    left: "50%",
+    top: "50%",
+    position: "absolute",
+  },
+  iconPosition1: {
+    top: 21,
+    height: 22,
+    position: "absolute",
+  },
+  sKinLuPosition: {
+    top: 386,
+    height: 90,
+    width: 165,
+    position: "absolute",
+  },
+  phngOToPosition: {
+    marginTop: 14,
+    height: 20,
+    display: "flex",
+    fontSize: FontSize.size_base,
+    fontWeight: "300",
+    textAlign: "center",
+    color: Color.colorBlack,
+    justifyContent: "center",
+    alignItems: "center",
+    fontFamily: FontFamily.robotoFlex,
+    left: "50%",
+    top: "50%",
+    position: "absolute",
+  },
+  iconPosition: {
+    top: 22,
+    height: 24,
+    position: "absolute",
+  },
+  sKinLu1Position: {
+    top: 270,
+    height: 90,
+    width: 165,
+    position: "absolute",
+  },
+  homeLayout: {
+    width: 67,
+    display: "none",
+  },
+  trungTmH: {
+    marginTop: 56.04,
+    marginLeft: -188,
+    fontSize: 24,
+    fontWeight: "700",
+    color: "#2fa4dd",
+    width: 219,
+    textAlign: "left",
+    fontFamily: FontFamily.robotoFlex,
+    left: "50%",
+    top: "50%",
+    position: "absolute",
+  },
+  image46: {
+    left: 13,
+    width: 18,
+    height: 29,
+    top: 0,
+    position: "absolute",
+  },
+  image47Icon: {
+    top: 4,
+    left: 278,
+    width: 34,
+    height: 34,
+    position: "absolute",
+  },
+  image48Icon: {
+    top: 119,
+    width: 22,
+    left: 16,
+  },
+  image56Icon: {
+    height: 18,
+    width: 30,
+    left: 70,
+  },
+  thamQuanO: {
+    width: 121,
+    marginLeft: -58.5,
+    marginTop: 5,
+    display: "flex",
+    fontSize: FontSize.size_base,
+  },
+  gpBoLi: {
+    left: 235,
+  },
+  image57Icon: {
+    width: 27,
+    height: 24,
+    left: 72,
+    top: 13,
+    position: "absolute",
+  },
+  tmHiuV: {
+    marginTop: 2,
+    marginLeft: -67.5,
+    width: 137,
+  },
+  gpBoLi1: {
+    left: 34,
+  },
+  image58Icon: {
+    left: 73,
+    width: 24,
+    height: 23,
+  },
+  ngnhVChuyn: {
+    marginTop: 6,
+    marginLeft: -53.5,
+    width: 117,
+  },
+  gpBoLi2: {
+    left: 235,
+  },
+  image55Icon: {
+    height: 19,
+    top: 13,
+    position: "absolute",
+  },
+  nghinCu: {
+    marginLeft: -62.5,
+    width: 121,
+    marginTop: 5,
+    display: "flex",
+    fontSize: FontSize.size_base,
+  },
+  trungTmHTr1: {
+    left: 34,
+  },
+  image54Icon: {
+    top: 24,
+    height: 22,
+    position: "absolute",
+  },
+  kTcX: {
+    marginLeft: -63.5,
+    width: 132,
+  },
+  ciTBoMt: {
+    left: 235,
+  },
+  image53Icon: {
+    width: 19,
+    left: 72,
+    top: 21,
+  },
+  cHiNghNghip: {
+    left: 34,
+  },
+  bnTinSinh: {
+    width: 121,
+    marginLeft: -58.5,
+  },
+  image52Icon: {
+    width: 21,
+    left: 70,
+  },
+  sKinLu: {
+    left: 237,
+  },
+  image51Icon: {
+    left: 66,
+    width: 30,
+  },
+  phngOTo: {
+    width: 140,
+    marginLeft: -71.5,
+  },
+  thngTinTiKhon: {
+    left: 34,
+  },
+  cngTcTuyn: {
+    marginLeft: -70.5,
+    width: 141,
+  },
+  image50Icon: {
+    left: 65,
+    width: 30,
+  },
+  sKinLu1: {
+    left: 235,
+  },
+  image49Icon: {
+    left: 70,
+    width: 22,
+  },
+  thngTinTiKhon1: {
+    left: 32,
+  },
 });
 
 export default TrungTmHTr;

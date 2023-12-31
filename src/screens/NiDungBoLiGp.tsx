@@ -55,7 +55,7 @@ const NiDungBoLiGp = () => {
           <Text style={styles.thngBo}>Tài khoản</Text>
         </Pressable>
       </View>
-      <View style={styles.statusBar}>
+      {/* <View style={styles.statusBar}>
         <View style={styles.statusBar1}>
           <Image
             style={styles.uiIcon}
@@ -66,7 +66,7 @@ const NiDungBoLiGp = () => {
             <Text style={styles.time1}>9:27</Text>
           </View>
         </View>
-      </View>
+      </View> */}
       <Text style={[styles.xinLiVContainer, styles.chnCh1Layout]}>
         <Text style={styles.xinLiV1}>{`Xin lỗi vì bạn đã có 
 trải nghiệm không tốt. 
@@ -104,8 +104,15 @@ trải nghiệm và suy nghĩ của bạn...`}</Text>
       <View style={[styles.dchV, styles.dchVLayout]}>
         <Text style={[styles.button2, styles.text1Clr]}>Dịch vụ</Text>
       </View>
-      <Pressable style={styles.pressable} onPress={() => navigation.goBack()}>
-        <Text style={[styles.text1, styles.text1Clr]}></Text>
+      <Pressable 
+        style={[styles.image64, styles.timeLayout]} 
+        onPress={() => navigation.goBack()}>
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("@/assets/lr6-whiteBack.png")}
+        />
+        {/* <Text style={[styles.text1, styles.text1Clr]}></Text> */}
       </Pressable>
     </LinearGradient>
   );
@@ -116,6 +123,19 @@ const styles = StyleSheet.create({
     width: 67,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  image64: {
+    left: 369,
+    top: 72,
+    width: 24,
+  },
+  timeLayout: {
+    height: 23,
+    position: "absolute",
   },
   chnCh1Layout: {
     width: 303,
@@ -139,32 +159,33 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   dchVLayout: {
-    height: 37,
-    width: 93,
-    borderRadius: Border.br_26xl,
+    height: 55,
+    width: 100,
     top: 366,
+    borderRadius: Border.br_26xl,
     paddingHorizontal: Padding.p_xl,
     paddingVertical: Padding.p_mini,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    position: 'absolute'
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    position: "absolute",
   },
   text1Clr: {
     color: Color.white,
     textAlign: 'center'
   },
   tnhFlexBox: {
-    top: 410,
-    height: 37,
+    height: 51,
+    width: 120,
+    top: 434,
     borderRadius: Border.br_26xl,
     paddingHorizontal: Padding.p_xl,
     backgroundColor: Color.gray_500,
     paddingVertical: Padding.p_mini,
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    position: 'absolute'
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    position: "absolute",
   },
   vectorIcon1: {
     width: 24,
@@ -330,8 +351,18 @@ const styles = StyleSheet.create({
     width: 62
   },
   dchV: {
-    left: 271,
-    backgroundColor: Color.gray_500
+    top: 369,
+    left: 293,
+    width: 120,
+    height: 52,
+    borderRadius: Border.br_26xl,
+    paddingHorizontal: Padding.p_xl,
+    backgroundColor: Color.gray_500,
+    paddingVertical: Padding.p_mini,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    position: "absolute",
   },
   text1: {
     fontSize: FontSize.size_17xl,
@@ -345,12 +376,12 @@ const styles = StyleSheet.create({
     position: 'absolute'
   },
   niDungBoLiGp1: {
-    borderRadius: Border.br_31xl,
+    borderRadius: 50,
     flex: 1,
-    width: '100%',
     height: 932,
-    backgroundColor: 'transparent',
-    overflow: 'hidden'
+    backgroundColor: "transparent",
+    overflow: "hidden",
+    width: "100%",
   }
 });
 

@@ -50,7 +50,7 @@ const CmNBoLiGp = () => {
           <Text style={[styles.thngBo, styles.time1Clr]}>Tài khoản</Text>
         </Pressable>
       </View>
-      <View style={[styles.statusBar, styles.barFlexBox]}>
+      {/* <View style={[styles.statusBar, styles.barFlexBox]}>
         <View style={styles.statusBar1}>
           <Image
             style={styles.uiIcon}
@@ -61,8 +61,13 @@ const CmNBoLiGp = () => {
             <Text style={[styles.time1, styles.time1FlexBox]}>9:27</Text>
           </View>
         </View>
-      </View>
-      <Text style={[styles.text2, styles.textTypo]}></Text>
+      </View> */}
+      <Image
+        style={styles.image62Icon}
+        contentFit="cover"
+        source={require("@/assets/lr6-goodFeedback.png")}
+      />
+      {/* <Text style={[styles.text2, styles.textTypo]}></Text> */}
       <Text style={[styles.xinChnThnhContainer, styles.time1FlexBox]}>
         <Text style={styles.xinChnThnhCmNGpC}>
           <Text style={styles.xinChnThnh1}>{`Xin chân thành cảm ơn 
@@ -80,10 +85,15 @@ góp ý của bạn!
         </Text>
       </Text>
       <Pressable
-        style={styles.pressable}
+        style={[styles.image63, styles.timeLayout]}
         onPress={() => navigation.navigate('Home')}
       >
-        <Text style={[styles.text4, styles.textTypo]}></Text>
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("@/assets/lr6-backblue.png")}
+        />
+        {/* <Text style={[styles.text4, styles.textTypo]}></Text> */}
       </Pressable>
     </View>
   );
@@ -218,7 +228,27 @@ const styles = StyleSheet.create({
     height: 932,
     overflow: 'hidden',
     backgroundColor: Color.white
-  }
+  },
+  timeLayout: {
+    height: 23,
+    position: "absolute",
+  },
+  image62Icon: {
+    top: 284,
+    left: 182,
+    width: 64,
+    height: 64,
+    position: "absolute",
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  image63: {
+    left: 369,
+    top: 72,
+    width: 24,
+  },
 });
 
 export default CmNBoLiGp;
