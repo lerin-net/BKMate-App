@@ -6,7 +6,8 @@ import {
   Text,
   Dimensions,
   Linking,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Color } from '@/theme/GlobalStyles';
@@ -77,7 +78,7 @@ const ScanQR = () => {
               await Linking.openURL(scannedData);
             }
           } else {
-            alert('No QR code found in the selected image.');
+            Alert.alert('No QR code found in the selected image.');
           }
         }
       }
@@ -91,6 +92,9 @@ const ScanQR = () => {
       MediaLibrary.requestPermissionsAsync();
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setPermission(cameraStatus.status === 'granted');
+      if (cameraStatus.status !== 'granted') {
+        Alert.alert('No camera permission');
+      }
     })();
   }, []);
 
@@ -113,7 +117,9 @@ const ScanQR = () => {
             <BarcodeMask edgeColor="#62B1F6" showAnimatedLine />
           </>
         ) : (
-          <Text>No camera permission</Text>
+          <Text style={{ marginTop: 300, fontWeight: '700' }}>
+            No camera permission
+          </Text>
         )}
         <View />
         <View style={styles.buttonField}>
@@ -155,8 +161,8 @@ const ScanQR = () => {
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const finderWidth: number = 290;
-const finderHeight: number = 240;
+const finderWidth: number = 200;
+const finderHeight: number = 250;
 const viewMinX = (width - finderWidth) / 2 + 30;
 const viewMinY = (height - finderHeight) / 2 - 150;
 

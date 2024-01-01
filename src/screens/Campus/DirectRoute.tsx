@@ -5,7 +5,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 import { Color, Border } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
@@ -70,7 +71,7 @@ const DirectRoute = () => {
   const [currentLocation, setCurrentLocation] = useState<{
     latitude: number;
     longitude: number;
-  }>();
+  }>(locations[1].location);
   const [destination, setDestination] = useState(targetLocation?.location);
   const [distance, setDistance] = useState('');
   const [duration, setDuration] = useState('');
@@ -84,7 +85,7 @@ const DirectRoute = () => {
   const getLocationPermission = async () => {
     const { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== 'granted') {
-      alert('Permission denied');
+      Alert.alert('Permission denied');
       return;
     }
     const location = await Location.getCurrentPositionAsync();
