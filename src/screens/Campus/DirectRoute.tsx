@@ -67,7 +67,9 @@ const locations = [
 const DirectRoute = () => {
   const route = useRoute();
   const { buildingName } = route.params;
+  console.log(buildingName);
   const targetLocation = locations.find((item) => item.id === buildingName);
+  console.log(targetLocation);
   const [currentLocation, setCurrentLocation] = useState<{
     latitude: number;
     longitude: number;
