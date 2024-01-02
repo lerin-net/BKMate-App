@@ -35,6 +35,14 @@ const ScanQR = () => {
       const { data, boundingBox: { origin } = {} } = scanningResult;
       // @ts-ignore
       const { x, y } = origin;
+      console.log(
+        x,
+        viewMinX + finderWidth / 2,
+        viewMinX,
+        y,
+        viewMinY + finderHeight / 2,
+        viewMinY
+      );
       if (
         x >= viewMinX &&
         y >= viewMinY &&
@@ -99,7 +107,7 @@ const ScanQR = () => {
   }, []);
 
   return (
-    <BaseLayout>
+    <View style={{ flex: 1 }}>
       <Text style={[styles.title]}>Quét mã QR hoặc chọn ảnh từ thiết bị</Text>
       <View style={styles.cameraContainer}>
         {permission ? (
@@ -155,7 +163,7 @@ const ScanQR = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </BaseLayout>
+    </View>
   );
 };
 
@@ -163,8 +171,8 @@ const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
 const finderWidth: number = 200;
 const finderHeight: number = 250;
-const viewMinX = (width - finderWidth) / 2 + 30;
-const viewMinY = (height - finderHeight) / 2 - 150;
+const viewMinX = (width - finderWidth) / 2 + 50;
+const viewMinY = (height - finderHeight) / 2 - 180;
 
 const styles = StyleSheet.create({
   title: {
