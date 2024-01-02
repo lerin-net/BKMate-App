@@ -12,6 +12,7 @@ function Card(props) {
       style={[styles.cardShadowBox, props?.cardStyle && props.cardStyle]}
       onPress={() => {
         props?.link &&
+          //@ts-ignore
           navigation.navigate(props?.link, {
             buildingName: props?.buildingName,
             locationName: props?.locationName,

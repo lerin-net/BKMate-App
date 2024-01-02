@@ -5,18 +5,17 @@ import {
   View,
   Text,
   Dimensions,
-  Linking,
   TouchableOpacity,
   Alert
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Color } from '@/theme/GlobalStyles';
-import BaseLayout from '@/layouts/BaseLayout';
 import { Camera, FlashMode, AutoFocus } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
 import { BarCodeScanner, BarCodeScannerResult } from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
+import { buildings } from '@/constant/building';
 
 const ScanQR = () => {
   const navigation = useNavigation();
@@ -29,20 +28,26 @@ const ScanQR = () => {
     setFlash(flash === FlashMode.off ? FlashMode.torch : FlashMode.off);
   };
 
+  const isBuilding = (data: string) => {
+    const building = buildings.find((building) => building.id === data);
+    if (building) {
+      // @ts-ignore
+      navigation.replace('LocationDetail', {
+        buildingName: building?.id,
+        locationName: building?.name,
+        locationImage: building?.image
+      });
+    } else {
+      Alert.alert('Error', 'Building not found');
+    }
+  };
+
   const handleBarCodeScanned = async (scanningResult: BarCodeScannerResult) => {
     if (!scanned) {
       // @ts-ignore
       const { data, boundingBox: { origin } = {} } = scanningResult;
       // @ts-ignore
       const { x, y } = origin;
-      console.log(
-        x,
-        viewMinX + finderWidth / 2,
-        viewMinX,
-        y,
-        viewMinY + finderHeight / 2,
-        viewMinY
-      );
       if (
         x >= viewMinX &&
         y >= viewMinY &&
@@ -50,10 +55,7 @@ const ScanQR = () => {
         y <= viewMinY + finderHeight / 2
       ) {
         setScanned(true);
-        const supported = await Linking.canOpenURL(data);
-        if (supported) {
-          await Linking.openURL(data);
-        }
+        isBuilding(data);
       }
     }
     setTimeout(() => setScanned(false), 3000);
@@ -81,10 +83,7 @@ const ScanQR = () => {
           if (decodedBarcodeImage && decodedBarcodeImage.length > 0) {
             const scannedData = decodedBarcodeImage[0].data;
             console.log('Detected QR Code');
-            const supported = await Linking.canOpenURL(scannedData);
-            if (supported) {
-              await Linking.openURL(scannedData);
-            }
+            isBuilding(scannedData);
           } else {
             Alert.alert('No QR code found in the selected image.');
           }

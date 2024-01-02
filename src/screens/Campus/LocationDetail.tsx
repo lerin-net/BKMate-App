@@ -23,6 +23,7 @@ const LocationDetail = () => {
   const navigation = useNavigation();
   const route = useRoute();
   const { buildingName, locationName, locationImage } = route.params;
+  console.log(buildingName, locationName, locationImage);
 
   return (
     <BaseLayout>
@@ -51,11 +52,7 @@ const LocationDetail = () => {
             luận, 1.704 tài liệu báo cáo khoa học, cùng hàng trăm ngàn đơn vị dữ
             liệu phát minh/ sáng chế, sách/ báo/ tạp chí khoa học, bài giảng
             điện tử…, được cập nhật thường xuyên, hỗ trợ việc học từ bậc ĐH đến
-            Sau ĐH. Thư viện này nằm tại Nhà A2, Cơ sở 1 (268 Lý Thường Kiệt,
-            Q.10).{'\n'}
-            Bên cạnh đó, Trường ĐH Bách Khoa còn có thư viện tại Cơ sở 2 (Nhà
-            H1, Dĩ An, Bình Dương) và Thư viện Ký túc xá Bách khoa (497 Hòa Hảo,
-            Q.10).
+            Sau ĐH.
           </Text>
         </View>
         <TouchableOpacity
