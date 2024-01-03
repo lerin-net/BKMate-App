@@ -26,7 +26,6 @@ const ClubDetail = () => {
     getClubEvents();
   }, []);
 
-  // console.log('clubEvents', clubEvents);
   return (
     <BaseLayout>
       <View style={styles.header}>

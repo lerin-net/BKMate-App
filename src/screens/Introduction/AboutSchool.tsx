@@ -8,8 +8,6 @@ import Card from '@/components/Card';
 import BaseLayout from '@/layouts/BaseLayout';
 
 const AboutSchool = () => {
-  const navigation = useNavigation();
-
   return (
     <BaseLayout>
       <View style={styles.header}>

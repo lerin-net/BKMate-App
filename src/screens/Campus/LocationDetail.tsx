@@ -22,13 +22,13 @@ import { useRoute } from '@react-navigation/native';
 const LocationDetail = () => {
   const navigation = useNavigation();
   const route = useRoute();
+  //@ts-ignore
   const { buildingName, locationName, locationImage } = route.params;
-  console.log(buildingName, locationName, locationImage);
 
   return (
     <BaseLayout>
       <View style={styles.header}>
-        <GoBackButton toPage="Địa điểm" />
+        <GoBackButton toPage="Trở về" />
         <Text style={styles.title}>{locationName.toString()}</Text>
         <Card
           image={

@@ -2,10 +2,9 @@ import { Border, Color, FontFamily, FontSize } from '@/theme/GlobalStyles';
 import { useNavigation } from '@react-navigation/core';
 import { Image } from 'expo-image';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function LoginMethod() {
-  const navigation = useNavigation();
   return (
     <View style={styles.loginMethod}>
       <Text style={styles.another}>Hoặc đăng nhập với</Text>

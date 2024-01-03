@@ -96,19 +96,22 @@ const Login = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => navigation.navigate('Register' as never)}
-                style={[styles.loginButton, { backgroundColor: '#fff' }]}
+                style={[styles.loginButton, { backgroundColor: '#F8EDFF' }]}
               >
                 <Text style={styles.linkText}>Tạo tài khoản</Text>
               </TouchableOpacity>
             </View>
           </View>
-          <LoginMethod />
           <TouchableOpacity
             onPress={() => navigation.navigate('Home' as never)}
-            style={[styles.loginButton, { backgroundColor: '#fff' }]}
+            style={[
+              styles.loginButton,
+              { backgroundColor: '#F8EDFF', marginTop: 20 }
+            ]}
           >
             <Text style={[styles.linkText]}>Tiếp tục mà không đăng nhập</Text>
           </TouchableOpacity>
+          <LoginMethod />
         </View>
       </ScrollView>
     </View>
