@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Text, StyleSheet, View, ScrollView, Dimensions } from 'react-native';
 import { FontSize, Color, FontFamily } from '@/theme/GlobalStyles';
 import Card from '@/components/Card';
-import NavigationBar from '@/components/NavigationBar';
 import GoBackButton from '@/components/GoBackButton';
 import BaseLayout from '@/layouts/BaseLayout';
 

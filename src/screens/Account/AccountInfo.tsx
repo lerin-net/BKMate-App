@@ -19,7 +19,6 @@ import {
   Padding
 } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
-import GoBackButton from '@/components/GoBackButton';
 import { UserProfile } from '.';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

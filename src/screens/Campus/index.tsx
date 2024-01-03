@@ -12,7 +12,6 @@ import {
   Platform
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useNavigation } from '@react-navigation/native';
 import { FontFamily, Color, FontSize, Border } from '@/theme/GlobalStyles';
 import Card from '@/components/Card';
 import GoBackButton from '@/components/GoBackButton';
@@ -32,7 +31,6 @@ const buildingsList = [
 ];
 
 const Campus = () => {
-  const navigation = useNavigation();
   const [inputSearch, setInputSearch] = useState('');
 
   return (

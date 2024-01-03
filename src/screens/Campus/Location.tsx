@@ -6,7 +6,7 @@ import GoBackButton from '@/components/GoBackButton';
 import BaseLayout from '@/layouts/BaseLayout';
 import { useRoute } from '@react-navigation/native';
 
-const buildingsList = [
+const locationList = [
   {
     image: require('@/assets/lythuyet.jpg'),
     name: 'Phòng học lý thuyết',
@@ -36,6 +36,7 @@ const buildingsList = [
 
 const Location = () => {
   const route = useRoute();
+  //@ts-ignore
   const { buildingName } = route.params;
   return (
     <BaseLayout>
@@ -45,15 +46,15 @@ const Location = () => {
       </View>
       <ScrollView>
         <View style={styles.content}>
-          {buildingsList.map((building, index) => (
+          {locationList.map((location, index) => (
             <Card
               key={index}
-              name={building.name}
-              image={building.image}
-              link={building.link}
+              name={location.name}
+              image={location.image}
+              link="LocationDetail"
               buildingName={buildingName}
-              locationName={building.name}
-              locationImage={building.image}
+              locationName={location.name}
+              locationImage={location.image}
             />
           ))}
         </View>
