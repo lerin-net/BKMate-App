@@ -105,7 +105,7 @@ const Center = () => {
             onPress={() => navigation.navigate('AboutSchool' as never)}
           />
           <MenuItem
-            label="Ngành và chuyển ngành"
+            label="Ngành và chuyên ngành"
             iconSource={require('@/assets/lr5-faculty.png')}
             onPress={() => navigation.navigate('StudyProgram' as never)}
           />
