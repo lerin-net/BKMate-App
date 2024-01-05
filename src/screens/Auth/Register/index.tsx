@@ -6,7 +6,8 @@ import {
   TextInput,
   Dimensions,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  Alert
 } from 'react-native';
 import { Image } from 'expo-image';
 import { useNavigation } from '@react-navigation/native';
@@ -25,6 +26,65 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch(
+        'https://bkmate-service.onrender.com/auth/signin',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.status === 200) {
+        // Successful login, redirect to homepage
+        navigation.navigate('Home' as never);
+      } else {
+        // Unsuccessful login, show an error message
+        Alert.alert('Error', 'Invalid email or password');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      // Handle other errors here
+    }
+  };
+
+  const handleRegister = async () => {
+    try {
+      if (password !== confirmPassword) {
+        Alert.alert('Error', 'Password does not match');
+      } else {
+        const response = await fetch(
+          'https://bkmate-service.onrender.com/users',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          }
+        );
+
+        if (response.status === 201) {
+          // Successful login, redirect to homepage
+          handleLogin();
+        } else {
+          // Unsuccessful login, show an error message
+          const error = JSON.parse(await response.text());
+          Alert.alert('Error', error.message);
+        }
+      }
+    } catch (error) {
+      console.error('Error during register:', error);
+      // Handle other errors here
+    }
+  };
 
   return (
     <View style={styles.screen}>
@@ -52,12 +112,14 @@ const Register = () => {
             <TextInput
               style={[styles.inputSpaceBlock]}
               placeholder="Email"
+              autoCapitalize="none"
               value={email}
               onChangeText={(val) => setEmail(val)}
             />
             <TextInput
               style={[styles.inputSpaceBlock]}
               placeholder="Password"
+              autoCapitalize="none"
               secureTextEntry
               value={password}
               onChangeText={(val) => setPassword(val)}
@@ -65,6 +127,7 @@ const Register = () => {
             <TextInput
               style={[styles.inputSpaceBlock]}
               placeholder="Confirm password"
+              autoCapitalize="none"
               secureTextEntry
               value={confirmPassword}
               onChangeText={(val) => setConfirmPassword(val)}
@@ -72,11 +135,14 @@ const Register = () => {
             <View style={styles.actions}>
               <TouchableOpacity
                 style={styles.loginButton}
-                onPress={() => navigation.navigate('Home')}
+                onPress={handleRegister}
               >
                 <Text style={[styles.loginText]}>Đăng kí</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Login' as never)}
+                style={[styles.loginButton, { backgroundColor: '#F8EDFF' }]}
+              >
                 <Text style={[styles.linkText]}>Đã có tài khoản ?</Text>
               </TouchableOpacity>
             </View>
@@ -127,7 +193,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: FontSize.size_sm,
-    fontFamily: FontFamily.montserrat,
+    fontFamily: FontFamily.montserratBold,
     color: Color.darkslategray_100,
     textAlign: 'center'
   },
@@ -152,7 +218,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs
   },
   actions: {
-    rowGap: 30,
+    rowGap: 20,
     alignItems: 'center',
     width: '100%'
   },

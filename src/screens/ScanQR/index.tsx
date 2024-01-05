@@ -5,17 +5,17 @@ import {
   View,
   Text,
   Dimensions,
-  Linking,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Color } from '@/theme/GlobalStyles';
-import BaseLayout from '@/layouts/BaseLayout';
 import { Camera, FlashMode, AutoFocus } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import * as ImagePicker from 'expo-image-picker';
 import { BarCodeScanner, BarCodeScannerResult } from 'expo-barcode-scanner';
 import BarcodeMask from 'react-native-barcode-mask';
+import { buildings } from '@/constant/building';
 
 const ScanQR = () => {
   const navigation = useNavigation();
@@ -28,11 +28,26 @@ const ScanQR = () => {
     setFlash(flash === FlashMode.off ? FlashMode.torch : FlashMode.off);
   };
 
+  const isBuilding = (data: string) => {
+    const building = buildings.find((building) => building.id === data);
+    if (building) {
+      navigation.replace('LocationDetail', {
+        buildingName: building?.id,
+        locationName: building?.name,
+        locationImage: building?.image
+      });
+    } else {
+      Alert.alert(
+        'Địa chỉ không tồn tại',
+        'Mã QR không chứa thông tin địa điểm của Trường Đại học Bách Khoa'
+      );
+    }
+  };
+
   const handleBarCodeScanned = async (scanningResult: BarCodeScannerResult) => {
     if (!scanned) {
-      // @ts-ignore
+      //@ts-ignore
       const { data, boundingBox: { origin } = {} } = scanningResult;
-      // @ts-ignore
       const { x, y } = origin;
       if (
         x >= viewMinX &&
@@ -41,10 +56,7 @@ const ScanQR = () => {
         y <= viewMinY + finderHeight / 2
       ) {
         setScanned(true);
-        const supported = await Linking.canOpenURL(data);
-        if (supported) {
-          await Linking.openURL(data);
-        }
+        isBuilding(data);
       }
     }
     setTimeout(() => setScanned(false), 3000);
@@ -63,7 +75,6 @@ const ScanQR = () => {
 
         if (selectedAsset) {
           const uri = selectedAsset.uri;
-          // Use BarCodeScanner to decode the QR code from the selected image
           const decodedBarcodeImage = await BarCodeScanner.scanFromURLAsync(
             uri,
             [BarCodeScanner.Constants.BarCodeType.qr]
@@ -72,12 +83,9 @@ const ScanQR = () => {
           if (decodedBarcodeImage && decodedBarcodeImage.length > 0) {
             const scannedData = decodedBarcodeImage[0].data;
             console.log('Detected QR Code');
-            const supported = await Linking.canOpenURL(scannedData);
-            if (supported) {
-              await Linking.openURL(scannedData);
-            }
+            isBuilding(scannedData);
           } else {
-            alert('No QR code found in the selected image.');
+            Alert.alert('No QR code found in the selected image.');
           }
         }
       }
@@ -91,12 +99,15 @@ const ScanQR = () => {
       MediaLibrary.requestPermissionsAsync();
       const cameraStatus = await Camera.requestCameraPermissionsAsync();
       setPermission(cameraStatus.status === 'granted');
+      if (cameraStatus.status !== 'granted') {
+        Alert.alert('No camera permission');
+      }
     })();
   }, []);
 
   return (
-    <BaseLayout>
-      <Text style={[styles.title]}>Quét mã QR hoặc chọn ảnh từ thiết bị</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Quét mã QR hoặc chọn ảnh từ thiết bị</Text>
       <View style={styles.cameraContainer}>
         {permission ? (
           <>
@@ -113,60 +124,58 @@ const ScanQR = () => {
             <BarcodeMask edgeColor="#62B1F6" showAnimatedLine />
           </>
         ) : (
-          <Text>No camera permission</Text>
+          <Text style={styles.permissionText}>No camera permission</Text>
         )}
         <View />
         <View style={styles.buttonField}>
-          <TouchableOpacity
-            style={[styles.smButton]}
-            onPress={() => toggleFlash()}
-          >
+          <TouchableOpacity style={styles.smButton} onPress={toggleFlash}>
             <Image
               style={styles.lightIcon}
-              contentFit="cover"
               source={require('@/assets/live--sun.png')}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.lgButton]}
-            onPress={() => pickImage()}
-          >
+          <TouchableOpacity style={styles.lgButton} onPress={pickImage}>
             <Image
               style={styles.imageIcon}
-              contentFit="cover"
               source={require('@/assets/media--image-01.png')}
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.smButton]}
+            style={styles.smButton}
             onPress={() => navigation.navigate('Home' as never)}
           >
             <Image
               style={styles.backIcon}
-              contentFit="cover"
               source={require('@/assets/vector-7.png')}
             />
           </TouchableOpacity>
         </View>
       </View>
-    </BaseLayout>
+    </View>
   );
 };
 
 const width = Dimensions.get('window').width;
 const height = Dimensions.get('window').height;
-const finderWidth: number = 290;
-const finderHeight: number = 240;
-const viewMinX = (width - finderWidth) / 2 + 30;
-const viewMinY = (height - finderHeight) / 2 - 150;
+const finderWidth: number = 200;
+const finderHeight: number = 250;
+const viewMinX = (width - finderWidth) / 2 + 50;
+const viewMinY = (height - finderHeight) / 2 - 180;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   title: {
     fontSize: 22,
     fontWeight: '700',
     color: Color.deepskyblue_200,
     marginTop: 50,
     alignSelf: 'center'
+  },
+  permissionText: {
+    marginTop: 300,
+    fontWeight: '700'
   },
   buttonField: {
     marginVertical: 50,

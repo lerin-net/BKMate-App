@@ -5,7 +5,6 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function LoginMethod() {
-  const navigation = useNavigation();
   return (
     <View style={styles.loginMethod}>
       <Text style={styles.another}>Hoặc đăng nhập với</Text>

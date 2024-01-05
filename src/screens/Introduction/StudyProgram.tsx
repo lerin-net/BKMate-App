@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Text, StyleSheet, View, FlatList } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { FontFamily, FontSize } from '@/theme/GlobalStyles';
 import BaseLayout from '@/layouts/BaseLayout';
 import GoBackButton from '@/components/GoBackButton';
@@ -30,8 +29,6 @@ const Item = ({ item }) => {
 };
 
 const StudyProgram = () => {
-  const navigation = useNavigation();
-
   return (
     <BaseLayout>
       <View style={styles.header}>

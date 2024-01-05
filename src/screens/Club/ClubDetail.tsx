@@ -20,13 +20,12 @@ const ClubDetail = () => {
         const data = await response.json();
         setClubEvents(data);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getClubEvents();
   }, []);
 
-  console.log('clubEvents', clubEvents);
   return (
     <BaseLayout>
       <View style={styles.header}>
