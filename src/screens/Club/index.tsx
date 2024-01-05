@@ -82,7 +82,7 @@ const Club = () => {
         const data = await response.json();
         setClubs(data);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getClubs();

@@ -57,6 +57,7 @@ const iconButtonList = [
 const Home = () => {
   const navigation = useNavigation();
   const [inputSearch, setInputSearch] = useState('');
+
   return (
     <BaseLayout>
       <KeyboardAvoidingView

@@ -28,13 +28,16 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('https://bkmate-service.onrender.com/auth/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email, password })
-      });
+      const response = await fetch(
+        'https://bkmate-service.onrender.com/auth/signin',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        }
+      );
 
       const result = await response.json();
 
@@ -50,7 +53,7 @@ const Login = () => {
       // Handle other errors here
     }
   };
-  
+
   return (
     <View style={styles.screen}>
       <ScrollView>
@@ -66,14 +69,14 @@ const Login = () => {
             <TextInput
               style={[styles.inputSpaceBlock]}
               placeholder="Email"
-              autoCapitalize='none'
+              autoCapitalize="none"
               value={email}
               onChangeText={(val) => setEmail(val)}
             />
             <TextInput
               style={[styles.inputSpaceBlock]}
               placeholder="Password"
-              autoCapitalize='none'
+              autoCapitalize="none"
               secureTextEntry
               value={password}
               onChangeText={(val) => setPassword(val)}
@@ -91,42 +94,24 @@ const Login = () => {
               >
                 <Text style={styles.loginText}>Đăng nhập</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => navigation.navigate('Register' as never)}>
+              <TouchableOpacity
+                onPress={() => navigation.navigate('Register' as never)}
+                style={[styles.loginButton, { backgroundColor: '#F8EDFF' }]}
+              >
                 <Text style={styles.linkText}>Tạo tài khoản</Text>
               </TouchableOpacity>
             </View>
           </View>
-
-          {/* <View style={styles.loginMethod}>
-            <Text style={styles.another}>Hoặc đăng nhập với</Text>
-            <View style={styles.socialMedia}>
-              <TouchableOpacity style={styles.media}>
-                <Image
-                  style={styles.mediaIcon}
-                  contentFit="cover"
-                  source={require('@/assets/frame-1.png')}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.media}>
-                <Image
-                  style={styles.mediaIcon}
-                  contentFit="cover"
-                  source={require('@/assets/wrapper.png')}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.media]}>
-                <Image
-                  style={styles.mediaIcon}
-                  contentFit="cover"
-                  source={require('@/assets/frame-11.png')}
-                />
-              </TouchableOpacity>
-            </View>
-          </View> */}
-          <LoginMethod />
-          <TouchableOpacity onPress={() => navigation.navigate('Home' as never)}>
-            <Text style={styles.linkText}>Tiếp tục mà không đăng nhập</Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Home' as never)}
+            style={[
+              styles.loginButton,
+              { backgroundColor: '#F8EDFF', marginTop: 20 }
+            ]}
+          >
+            <Text style={[styles.linkText]}>Tiếp tục mà không đăng nhập</Text>
           </TouchableOpacity>
+          <LoginMethod />
         </View>
       </ScrollView>
     </View>
@@ -168,7 +153,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: FontSize.size_sm,
-    fontFamily: FontFamily.montserrat,
+    fontFamily: FontFamily.montserratBold,
     color: Color.darkslategray_100,
     textAlign: 'center'
   },
@@ -197,7 +182,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs
   },
   actions: {
-    rowGap: 30,
+    rowGap: 20,
     alignItems: 'center',
     width: '100%'
   },

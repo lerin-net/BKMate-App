@@ -71,10 +71,6 @@ const Register = () => {
           }
         );
 
-        // console.log(response);
-        // const result = await response.json();
-        // console.log(result);
-
         if (response.status === 201) {
           // Successful login, redirect to homepage
           handleLogin();
@@ -145,6 +141,7 @@ const Register = () => {
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => navigation.navigate('Login' as never)}
+                style={[styles.loginButton, { backgroundColor: '#F8EDFF' }]}
               >
                 <Text style={[styles.linkText]}>Đã có tài khoản ?</Text>
               </TouchableOpacity>
@@ -196,7 +193,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: FontSize.size_sm,
-    fontFamily: FontFamily.montserrat,
+    fontFamily: FontFamily.montserratBold,
     color: Color.darkslategray_100,
     textAlign: 'center'
   },
@@ -221,7 +218,7 @@ const styles = StyleSheet.create({
     borderRadius: Border.br_3xs
   },
   actions: {
-    rowGap: 30,
+    rowGap: 20,
     alignItems: 'center',
     width: '100%'
   },
